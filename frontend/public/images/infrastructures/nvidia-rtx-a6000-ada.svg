@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#f1f5f9"/>
+    </linearGradient>
+    <filter id="cardShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#0f172a" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+
+  <!-- Background Canvas -->
+  <rect width="600" height="400" fill="url(#bgGrad)" rx="16"/>
+
+  <!-- Top Badge -->
+  <rect x="40" y="32" width="180" height="28" rx="14" fill="#0f172a" opacity="0.1"/>
+  <text x="54" y="51" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="700" fill="#0f172a">
+    ENTERPRISE AI RIG
+  </text>
+
+  <!-- Specification Sub-badge -->
+  <rect x="230" y="32" width="220" height="28" rx="14" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="244" y="50" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="600" fill="#475569">
+    48GB ECC VRAM
+  </text>
+
+  <!-- GPU Rig Workstation Visual Illustration -->
+  <g transform="translate(130, 80)" filter="url(#cardShadow)">
+    <!-- Main Tower / Frame -->
+    <rect x="30" y="20" width="280" height="200" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+    
+    <!-- Motherboard Panel -->
+    <rect x="45" y="35" width="250" height="170" rx="6" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5"/>
+
+    <!-- Dual GPU Card 1 -->
+    <rect x="65" y="50" width="210" height="60" rx="6" fill="#ffffff" stroke="#0f172a" stroke-width="2"/>
+    <!-- GPU Fans -->
+    <circle cx="115" cy="80" r="20" fill="#f1f5f9" stroke="#0284c7" stroke-width="1.5"/>
+    <circle cx="115" cy="80" r="6" fill="#0f172a"/>
+    <circle cx="170" cy="80" r="20" fill="#f1f5f9" stroke="#0284c7" stroke-width="1.5"/>
+    <circle cx="170" cy="80" r="6" fill="#0f172a"/>
+    <circle cx="225" cy="80" r="20" fill="#f1f5f9" stroke="#0284c7" stroke-width="1.5"/>
+    <circle cx="225" cy="80" r="6" fill="#0f172a"/>
+
+    <!-- Dual GPU Card 2 -->
+    <rect x="65" y="125" width="210" height="60" rx="6" fill="#ffffff" stroke="#0284c7" stroke-width="2"/>
+    <!-- GPU Fans -->
+    <circle cx="115" cy="155" r="20" fill="#f1f5f9" stroke="#0f172a" stroke-width="1.5"/>
+    <circle cx="115" cy="155" r="6" fill="#0284c7"/>
+    <circle cx="170" cy="155" r="20" fill="#f1f5f9" stroke="#0f172a" stroke-width="1.5"/>
+    <circle cx="170" cy="155" r="6" fill="#0284c7"/>
+    <circle cx="225" cy="155" r="20" fill="#f1f5f9" stroke="#0f172a" stroke-width="1.5"/>
+    <circle cx="225" cy="155" r="6" fill="#0284c7"/>
+
+    <!-- Status Power Indicator -->
+    <circle cx="280" cy="30" r="4" fill="#10b981"/>
+    <circle cx="292" cy="30" r="4" fill="#0284c7"/>
+  </g>
+
+  <!-- Bottom Hardware Name -->
+  <text x="300" y="340" font-family="system-ui, -apple-system, sans-serif" font-size="20" font-weight="700" fill="#0f172a" text-anchor="middle">
+    NVIDIA RTX A6000 Ada Workstation
+  </text>
+  <text x="300" y="365" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="500" fill="#64748b" text-anchor="middle">
+    High-Performance Tensor Computing • On-Premise Deep Learning
+  </text>
+</svg>

@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 950 620" width="950" height="620" style="background:#ffffff; font-family:'Segoe UI', Arial, sans-serif;">
+  <rect x="15" y="15" width="920" height="590" fill="#FFFFFF" stroke="#707070" stroke-width="1.2"/>
+  <polygon points="15,15 310,15 325,35 15,35" fill="#EAEAEA" stroke="#707070" stroke-width="1.2"/>
+  <text x="25" y="29" font-size="11" font-weight="bold" fill="#333333">class [Package] 03. Logical Data Model [Entity Classes]</text>
+
+  <!-- Class: User -->
+  <g transform="translate(40, 60)">
+    <rect x="0" y="0" width="180" height="150" fill="#FEFEE6" stroke="#8064A2" stroke-width="1.3"/>
+    <rect x="0" y="0" width="180" height="26" fill="#F4EBF9" stroke="#8064A2" stroke-width="1.3"/>
+    <text x="90" y="18" font-size="12" font-weight="bold" fill="#333333" text-anchor="middle">User</text>
+    <line x1="0" y1="26" x2="180" y2="26" stroke="#8064A2" stroke-width="1"/>
+    <text x="10" y="44" font-size="10" fill="#000000">+ id : Integer [PK]</text>
+    <text x="10" y="60" font-size="10" fill="#000000">+ email : String</text>
+    <text x="10" y="76" font-size="10" fill="#000000">+ passwordHash : String</text>
+    <text x="10" y="92" font-size="10" fill="#000000">+ name : String</text>
+    <text x="10" y="108" font-size="10" fill="#000000">+ role : Role (admin, sales)</text>
+    <text x="10" y="124" font-size="10" fill="#000000">+ createdAt : DateTime</text>
+  </g>
+
+  <!-- Class: Laptop -->
+  <g transform="translate(280, 60)">
+    <rect x="0" y="0" width="220" height="220" fill="#FEFEE6" stroke="#8064A2" stroke-width="1.3"/>
+    <rect x="0" y="0" width="220" height="26" fill="#F4EBF9" stroke="#8064A2" stroke-width="1.3"/>
+    <text x="110" y="18" font-size="12" font-weight="bold" fill="#333333" text-anchor="middle">Laptop</text>
+    <line x1="0" y1="26" x2="220" y2="26" stroke="#8064A2" stroke-width="1"/>
+    <text x="10" y="44" font-size="10" fill="#000000">+ id : Integer [PK]</text>
+    <text x="10" y="60" font-size="10" fill="#000000">+ brand : String</text>
+    <text x="10" y="76" font-size="10" fill="#000000">+ model : String</text>
+    <text x="10" y="92" font-size="10" fill="#000000">+ sku : String</text>
+    <text x="10" y="108" font-size="10" fill="#000000">+ price : Decimal (C1 - Cost)</text>
+    <text x="10" y="124" font-size="10" fill="#000000">+ stock : Integer</text>
+    <text x="10" y="140" font-size="10" fill="#000000">+ processorScore : Decimal (C2)</text>
+    <text x="10" y="156" font-size="10" fill="#000000">+ ramGb : Integer (C3)</text>
+    <text x="10" y="172" font-size="10" fill="#000000">+ storageGb : Integer (C4)</text>
+    <text x="10" y="188" font-size="10" fill="#000000">+ gpuScore : Decimal (C5)</text>
+    <text x="10" y="204" font-size="10" fill="#000000">+ batteryHours : Decimal (C6)</text>
+  </g>
+
+  <!-- Class: Criterion -->
+  <g transform="translate(560, 60)">
+    <rect x="0" y="0" width="180" height="130" fill="#FEFEE6" stroke="#8064A2" stroke-width="1.3"/>
+    <rect x="0" y="0" width="180" height="26" fill="#F4EBF9" stroke="#8064A2" stroke-width="1.3"/>
+    <text x="90" y="18" font-size="12" font-weight="bold" fill="#333333" text-anchor="middle">Criterion</text>
+    <line x1="0" y1="26" x2="180" y2="26" stroke="#8064A2" stroke-width="1"/>
+    <text x="10" y="44" font-size="10" fill="#000000">+ id : Integer [PK]</text>
+    <text x="10" y="60" font-size="10" fill="#000000">+ code : String (C1 - C6)</text>
+    <text x="10" y="76" font-size="10" fill="#000000">+ name : String</text>
+    <text x="10" y="92" font-size="10" fill="#000000">+ type : String (cost, benefit)</text>
+    <text x="10" y="108" font-size="10" fill="#000000">+ description : Text</text>
+  </g>
+
+  <!-- Class: Order -->
+  <g transform="translate(40, 310)">
+    <rect x="0" y="0" width="220" height="230" fill="#FEFEE6" stroke="#8064A2" stroke-width="1.3"/>
+    <rect x="0" y="0" width="220" height="26" fill="#F4EBF9" stroke="#8064A2" stroke-width="1.3"/>
+    <text x="110" y="18" font-size="12" font-weight="bold" fill="#333333" text-anchor="middle">Order</text>
+    <line x1="0" y1="26" x2="220" y2="26" stroke="#8064A2" stroke-width="1"/>
+    <text x="10" y="44" font-size="10" fill="#000000">+ id : Integer [PK]</text>
+    <text x="10" y="60" font-size="10" fill="#000000">+ orderNumber : String</text>
+    <text x="10" y="76" font-size="10" fill="#000000">+ customerName : String</text>
+    <text x="10" y="92" font-size="10" fill="#000000">+ customerPhone : String</text>
+    <text x="10" y="108" font-size="10" fill="#000000">+ totalAmount : Decimal</text>
+    <text x="10" y="124" font-size="10" fill="#000000">+ paymentStatus : Enum</text>
+    <text x="10" y="140" font-size="10" fill="#000000">+ isCredit : Boolean</text>
+    <text x="10" y="156" font-size="10" fill="#000000">+ creditTenor : Integer</text>
+    <text x="10" y="172" font-size="10" fill="#000000">+ monthlyInstallment : Decimal</text>
+    <text x="10" y="188" font-size="10" fill="#000000">+ financingProvider : String</text>
+    <text x="10" y="204" font-size="10" fill="#000000">+ salesId : Integer [FK, Nullable]</text>
+  </g>
+
+  <!-- Class: OrderItem -->
+  <g transform="translate(320, 360)">
+    <rect x="0" y="0" width="180" height="130" fill="#FEFEE6" stroke="#8064A2" stroke-width="1.3"/>
+    <rect x="0" y="0" width="180" height="26" fill="#F4EBF9" stroke="#8064A2" stroke-width="1.3"/>
+    <text x="90" y="18" font-size="12" font-weight="bold" fill="#333333" text-anchor="middle">OrderItem</text>
+    <line x1="0" y1="26" x2="180" y2="26" stroke="#8064A2" stroke-width="1"/>
+    <text x="10" y="44" font-size="10" fill="#000000">+ id : Integer [PK]</text>
+    <text x="10" y="60" font-size="10" fill="#000000">+ orderId : Integer [FK]</text>
+    <text x="10" y="76" font-size="10" fill="#000000">+ laptopId : Integer [FK]</text>
+    <text x="10" y="92" font-size="10" fill="#000000">+ quantity : Integer</text>
+    <text x="10" y="108" font-size="10" fill="#000000">+ unitPrice : Decimal</text>
+  </g>
+
+  <!-- Relationships -->
+  <line x1="130" y1="210" x2="130" y2="310" stroke="#385D8A" stroke-width="1.3"/>
+  <text x="135" y="240" font-size="10" fill="#333333">1</text>
+  <text x="135" y="295" font-size="10" fill="#333333">0..* (PIC Sales)</text>
+
+  <line x1="260" y1="410" x2="320" y2="410" stroke="#385D8A" stroke-width="1.3"/>
+  <text x="270" y="405" font-size="10" fill="#333333">1</text>
+  <text x="300" y="405" font-size="10" fill="#333333">1..*</text>
+
+  <line x1="390" y1="280" x2="390" y2="360" stroke="#385D8A" stroke-width="1.3"/>
+  <text x="395" y="300" font-size="10" fill="#333333">1</text>
+  <text x="395" y="345" font-size="10" fill="#333333">0..*</text>
+</svg>

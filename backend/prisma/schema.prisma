@@ -1,0 +1,184 @@
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+enum Role {
+  admin
+  sales
+  user
+}
+
+enum CriterionType {
+  benefit
+  cost
+}
+
+enum PaymentStatus {
+  pending
+  paid
+  cancelled
+}
+
+enum SimulatedPaymentStatus {
+  pending
+  success
+}
+
+model User {
+  id           Int      @id @default(autoincrement())
+  name         String   @db.VarChar(100)
+  email        String   @unique @db.VarChar(100)
+  passwordHash String   @map("password_hash") @db.VarChar(255)
+  role         Role     @default(user)
+  createdAt    DateTime @default(now()) @map("created_at")
+
+  handledOrders Order[] @relation("SalesHandledOrders")
+
+  @@map("users")
+}
+
+model Profile {
+  id          Int      @id @default(autoincrement())
+  slug        String   @unique @db.VarChar(50)
+  name        String   @db.VarChar(100)
+  description String?  @db.Text
+  iconName    String?  @default("school") @map("icon_name") @db.VarChar(50)
+  isActive    Boolean  @default(true) @map("is_active")
+  createdAt   DateTime @default(now()) @map("created_at")
+
+  weights     ProfileCriteriaWeight[]
+
+  @@map("profiles")
+}
+
+model Criterion {
+  id          Int           @id @default(autoincrement())
+  code        String        @unique @db.VarChar(10)
+  name        String        @db.VarChar(100)
+  type        CriterionType
+  description String?       @db.Text
+  createdAt   DateTime      @default(now()) @map("created_at")
+
+  profileWeights  ProfileCriteriaWeight[]
+  laptopValues    LaptopCriteriaValue[]
+
+  @@map("criteria")
+}
+
+model ProfileCriteriaWeight {
+  id          Int       @id @default(autoincrement())
+  profileId   Int       @map("profile_id")
+  criterionId Int       @map("criterion_id")
+  weight      Decimal   @db.Decimal(5, 4)
+
+  profile     Profile   @relation(fields: [profileId], references: [id], onDelete: Cascade)
+  criterion   Criterion @relation(fields: [criterionId], references: [id], onDelete: Cascade)
+
+  @@unique([profileId, criterionId], map: "uq_profile_criterion")
+  @@map("profile_criteria_weights")
+}
+
+model Laptop {
+  id             Int       @id @default(autoincrement())
+  category       String    @default("cloud_instance") @db.VarChar(50) // cloud_instance | gpu_rig
+  brand          String    @db.VarChar(100)
+  model          String    @db.VarChar(200)
+  sku            String?   @db.VarChar(100)
+  price          Decimal   @db.Decimal(15, 2)
+  stock          Int       @default(10)
+  processorName  String?   @map("processor_name") @db.VarChar(150)
+  processorScore Decimal   @default(80.00) @map("processor_score") @db.Decimal(5, 2)
+  ramGb          Int       @map("ram_gb")
+  storageDesc    String?   @map("storage_desc") @db.VarChar(150)
+  storageGb      Int       @default(512) @map("storage_gb")
+  gpuName        String?   @map("gpu_name") @db.VarChar(150)
+  gpuScore       Decimal   @default(70.00) @map("gpu_score") @db.Decimal(5, 2)
+  batteryHours   Decimal   @default(10.0) @map("battery_hours") @db.Decimal(4, 1)
+  weightKg       Decimal   @default(1.40) @map("weight_kg") @db.Decimal(4, 2)
+  screenDesc     String?   @map("screen_desc") @db.VarChar(150)
+  imageUrl       String?   @map("image_url") @db.MediumText
+  description    String?   @db.Text
+  createdAt      DateTime  @default(now()) @map("created_at")
+  updatedAt      DateTime  @default(now()) @updatedAt @map("updated_at")
+
+  criteriaValues LaptopCriteriaValue[]
+  orderItems     OrderItem[]
+
+  @@map("laptops")
+}
+
+model LaptopCriteriaValue {
+  id          Int       @id @default(autoincrement())
+  laptopId    Int       @map("laptop_id")
+  criterionId Int       @map("criterion_id")
+  rawValue    Decimal   @map("raw_value") @db.Decimal(12, 2)
+
+  laptop      Laptop    @relation(fields: [laptopId], references: [id], onDelete: Cascade)
+  criterion   Criterion @relation(fields: [criterionId], references: [id], onDelete: Cascade)
+
+  @@unique([laptopId, criterionId], map: "uq_laptop_criterion")
+  @@map("laptop_criteria_values")
+}
+
+model Order {
+  id                 Int            @id @default(autoincrement())
+  orderNumber        String         @unique @map("order_number") @db.VarChar(50)
+  customerName       String         @map("customer_name") @db.VarChar(150)
+  customerEmail      String         @map("customer_email") @db.VarChar(150)
+  customerPhone      String         @map("customer_phone") @db.VarChar(50)
+  shippingAddress    String         @map("shipping_address") @db.Text
+  totalAmount        Decimal        @map("total_amount") @db.Decimal(15, 2)
+  paymentMethod      String         @map("payment_method") @db.VarChar(50)
+  paymentStatus      PaymentStatus  @default(pending) @map("payment_status")
+  paidAt             DateTime?      @map("paid_at")
+  createdAt          DateTime       @default(now()) @map("created_at")
+
+  // Field Integrasi Kredit & Sales:
+  isCredit           Boolean        @default(false) @map("is_credit")
+  creditTenor        Int?           @map("credit_tenor")
+  monthlyInstallment Decimal?       @map("monthly_installment") @db.Decimal(15, 2)
+  dpAmount           Decimal?       @default(0) @map("dp_amount") @db.Decimal(15, 2)
+  financingProvider  String?        @map("financing_provider") @db.VarChar(50)
+
+  // Sales PIC pelacak komisi & penanganan pesanan:
+  salesId            Int?           @map("sales_id")
+  sales              User?          @relation("SalesHandledOrders", fields: [salesId], references: [id])
+
+  items              OrderItem[]
+  payment            SimulatedPayment?
+
+  @@map("orders")
+}
+
+model OrderItem {
+  id        Int     @id @default(autoincrement())
+  orderId   Int     @map("order_id")
+  laptopId  Int     @map("laptop_id")
+  quantity  Int     @default(1)
+  unitPrice Decimal @map("unit_price") @db.Decimal(15, 2)
+  subtotal  Decimal @db.Decimal(15, 2)
+
+  order     Order   @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  laptop    Laptop  @relation(fields: [laptopId], references: [id], onDelete: Restrict)
+
+  @@map("order_items")
+}
+
+model SimulatedPayment {
+  id        Int                    @id @default(autoincrement())
+  orderId   Int                    @unique @map("order_id")
+  payCode   String                 @map("pay_code") @db.VarChar(100)
+  bankName  String                 @map("bank_name") @db.VarChar(50)
+  amount    Decimal                @db.Decimal(15, 2)
+  status    SimulatedPaymentStatus @default(pending)
+  createdAt DateTime               @default(now()) @map("created_at")
+
+  order     Order                  @relation(fields: [orderId], references: [id], onDelete: Cascade)
+
+  @@map("simulated_payments")
+}

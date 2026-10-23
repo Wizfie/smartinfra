@@ -1,0 +1,27 @@
+{
+  "name": "smartinfra-backend",
+  "version": "1.0.0",
+  "description": "Backend API for SmartInfra (Cloud Server & Dedicated AI GPU Infrastructure Decision System)",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "dev": "node --watch src/app.js",
+    "seed": "node database/seedSmartInfra.js",
+    "db:generate": "prisma generate",
+    "db:push": "prisma db push",
+    "tunnel": "cloudflared tunnel --protocol http2 --url http://localhost:5001"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "mysql2": "^3.11.0",
+    "@prisma/client": "^5.20.0"
+  },
+  "devDependencies": {
+    "prisma": "^5.20.0"
+  },
+  "keywords": ["spk", "saw", "infrastructure", "cloud", "gpu", "express", "mysql", "prisma"],
+  "author": "SmartInfra Team",
+  "license": "ISC"
+}

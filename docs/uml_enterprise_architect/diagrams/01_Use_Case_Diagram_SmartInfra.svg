@@ -1,0 +1,134 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 680" width="1000" height="680" style="background:#ffffff; font-family:'Segoe UI', Arial, sans-serif;">
+  <defs>
+    <filter id="eaDrop" x="-5%" y="-5%" width="115%" height="115%">
+      <feDropShadow dx="2" dy="2" stdDeviation="1.5" flood-color="#707070" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <!-- EA Diagram Frame -->
+  <rect x="15" y="15" width="970" height="650" fill="#FFFFFF" stroke="#707070" stroke-width="1.2"/>
+  <rect x="17" y="17" width="966" height="646" fill="none" stroke="#707070" stroke-width="0.6"/>
+  <!-- EA Tab Header -->
+  <polygon points="15,15 280,15 295,35 15,35" fill="#EAEAEA" stroke="#707070" stroke-width="1.2"/>
+  <text x="25" y="29" font-size="11" font-weight="bold" fill="#333333">uc [Package] 01. Use Case Model [SmartInfra System]</text>
+
+  <!-- System Boundary Box -->
+  <rect x="230" y="55" width="540" height="585" rx="4" fill="#FDFDFD" stroke="#385D8A" stroke-width="1.5" stroke-dasharray="6,3"/>
+  <text x="245" y="78" font-size="13" font-weight="bold" fill="#1E395B">Sistem Pendukung Keputusan SmartInfra (Web App)</text>
+
+  <!-- Actors -->
+  <!-- Actor 1: Konsumen / Tamu -->
+  <g transform="translate(60, 160)">
+    <circle cx="50" cy="30" r="14" fill="#FFF2CC" stroke="#385D8A" stroke-width="1.5"/>
+    <line x1="50" y1="44" x2="50" y2="85" stroke="#385D8A" stroke-width="1.5"/>
+    <line x1="20" y1="58" x2="80" y2="58" stroke="#385D8A" stroke-width="1.5"/>
+    <line x1="50" y1="85" x2="25" y2="120" stroke="#385D8A" stroke-width="1.5"/>
+    <line x1="50" y1="85" x2="75" y2="120" stroke="#385D8A" stroke-width="1.5"/>
+    <text x="50" y="140" font-size="11" font-weight="bold" fill="#1E395B" text-anchor="middle">&lt;&lt;actor&gt;&gt;</text>
+    <text x="50" y="155" font-size="12" font-weight="bold" fill="#000000" text-anchor="middle">Konsumen / Tamu</text>
+  </g>
+
+  <!-- Actor 2: Sales Consultant -->
+  <g transform="translate(60, 420)">
+    <circle cx="50" cy="30" r="14" fill="#FFF2CC" stroke="#385D8A" stroke-width="1.5"/>
+    <line x1="50" y1="44" x2="50" y2="85" stroke="#385D8A" stroke-width="1.5"/>
+    <line x1="20" y1="58" x2="80" y2="58" stroke="#385D8A" stroke-width="1.5"/>
+    <line x1="50" y1="85" x2="25" y2="120" stroke="#385D8A" stroke-width="1.5"/>
+    <line x1="50" y1="85" x2="75" y2="120" stroke="#385D8A" stroke-width="1.5"/>
+    <text x="50" y="140" font-size="11" font-weight="bold" fill="#1E395B" text-anchor="middle">&lt;&lt;actor&gt;&gt;</text>
+    <text x="50" y="155" font-size="12" font-weight="bold" fill="#000000" text-anchor="middle">Sales Consultant</text>
+  </g>
+
+  <!-- Actor 3: Administrator -->
+  <g transform="translate(840, 270)">
+    <circle cx="50" cy="30" r="14" fill="#FFF2CC" stroke="#385D8A" stroke-width="1.5"/>
+    <line x1="50" y1="44" x2="50" y2="85" stroke="#385D8A" stroke-width="1.5"/>
+    <line x1="20" y1="58" x2="80" y2="58" stroke="#385D8A" stroke-width="1.5"/>
+    <line x1="50" y1="85" x2="25" y2="120" stroke="#385D8A" stroke-width="1.5"/>
+    <line x1="50" y1="85" x2="75" y2="120" stroke="#385D8A" stroke-width="1.5"/>
+    <text x="50" y="140" font-size="11" font-weight="bold" fill="#1E395B" text-anchor="middle">&lt;&lt;actor&gt;&gt;</text>
+    <text x="50" y="155" font-size="12" font-weight="bold" fill="#000000" text-anchor="middle">Administrator</text>
+  </g>
+
+  <!-- Use Case Ovals -->
+  <!-- UC 1 -->
+  <ellipse cx="360" cy="115" rx="100" ry="24" fill="#D8E8F8" stroke="#385D8A" stroke-width="1.3" filter="url(#eaDrop)"/>
+  <text x="360" y="119" font-size="11" fill="#000000" text-anchor="middle">UC-01: Eksplorasi Katalog Laptop</text>
+
+  <!-- UC 2 (Central SPK SAW) -->
+  <ellipse cx="490" cy="175" rx="115" ry="26" fill="#D8E8F8" stroke="#385D8A" stroke-width="1.5" filter="url(#eaDrop)"/>
+  <text x="490" y="174" font-size="11" font-weight="bold" fill="#0F2942" text-anchor="middle">UC-02: Konsultasi SPK SAW</text>
+  <text x="490" y="188" font-size="9" fill="#385D8A" text-anchor="middle">(Perangkingan Multikriteria)</text>
+
+  <!-- UC 3 -->
+  <ellipse cx="630" cy="115" rx="105" ry="24" fill="#D8E8F8" stroke="#385D8A" stroke-width="1.3" filter="url(#eaDrop)"/>
+  <text x="630" y="119" font-size="11" fill="#000000" text-anchor="middle">UC-03: Kustomisasi Bobot Kriteria</text>
+
+  <!-- UC 4 -->
+  <ellipse cx="360" cy="245" rx="95" ry="24" fill="#D8E8F8" stroke="#385D8A" stroke-width="1.3" filter="url(#eaDrop)"/>
+  <text x="360" y="249" font-size="11" fill="#000000" text-anchor="middle">UC-04: Guest Checkout Mandiri</text>
+
+  <!-- UC 5 -->
+  <ellipse cx="360" cy="305" rx="95" ry="24" fill="#D8E8F8" stroke="#385D8A" stroke-width="1.3" filter="url(#eaDrop)"/>
+  <text x="360" y="309" font-size="11" fill="#000000" text-anchor="middle">UC-05: Lacak Resi &amp; Unduh Nota</text>
+
+  <!-- UC 6 (Login) -->
+  <ellipse cx="500" cy="365" rx="95" ry="24" fill="#FEFEE6" stroke="#8064A2" stroke-width="1.4" filter="url(#eaDrop)"/>
+  <text x="500" y="369" font-size="11" font-weight="bold" fill="#4B2C68" text-anchor="middle">UC-06: Autentikasi Login JWT</text>
+
+  <!-- UC 7 (Kredit) -->
+  <ellipse cx="360" cy="435" rx="105" ry="25" fill="#D8E8F8" stroke="#385D8A" stroke-width="1.3" filter="url(#eaDrop)"/>
+  <text x="360" y="439" font-size="11" fill="#000000" text-anchor="middle">UC-07: Simulasi Kredit 10 Provider</text>
+
+  <!-- UC 8 (Assisted Checkout) -->
+  <ellipse cx="480" cy="495" rx="115" ry="26" fill="#D8E8F8" stroke="#385D8A" stroke-width="1.5" filter="url(#eaDrop)"/>
+  <text x="480" y="494" font-size="11" font-weight="bold" fill="#0F2942" text-anchor="middle">UC-08: Assisted Checkout</text>
+  <text x="480" y="508" font-size="9" fill="#385D8A" text-anchor="middle">(Pencatatan PIC Sales)</text>
+
+  <!-- UC 9 (Monitor Stok) -->
+  <ellipse cx="360" cy="565" rx="100" ry="25" fill="#D8E8F8" stroke="#385D8A" stroke-width="1.3" filter="url(#eaDrop)"/>
+  <text x="360" y="569" font-size="11" fill="#000000" text-anchor="middle">UC-09: Monitor Stok (Read-Only)</text>
+
+  <!-- UC 11 (Master Laptop) -->
+  <ellipse cx="630" cy="245" rx="95" ry="24" fill="#D8E8F8" stroke="#385D8A" stroke-width="1.3" filter="url(#eaDrop)"/>
+  <text x="630" y="249" font-size="11" fill="#000000" text-anchor="middle">UC-11: Kelola Master Data Laptop</text>
+
+  <!-- UC 12 (Bobot Kriteria) -->
+  <ellipse cx="630" cy="305" rx="95" ry="24" fill="#D8E8F8" stroke="#385D8A" stroke-width="1.3" filter="url(#eaDrop)"/>
+  <text x="630" y="309" font-size="11" fill="#000000" text-anchor="middle">UC-12: Kelola Profil &amp; Bobot</text>
+
+  <!-- UC 13 (Verifikasi Approval) -->
+  <ellipse cx="640" cy="435" rx="110" ry="26" fill="#D8E8F8" stroke="#385D8A" stroke-width="1.5" filter="url(#eaDrop)"/>
+  <text x="640" y="434" font-size="11" font-weight="bold" fill="#0F2942" text-anchor="middle">UC-13: Verifikasi Pesanan Masuk</text>
+  <text x="640" y="448" font-size="9" fill="#385D8A" text-anchor="middle">(Maker-Checker Admin Approval)</text>
+
+  <!-- UC 14 (Audit SAW) -->
+  <ellipse cx="640" cy="515" rx="105" ry="24" fill="#D8E8F8" stroke="#385D8A" stroke-width="1.3" filter="url(#eaDrop)"/>
+  <text x="640" y="519" font-size="11" fill="#000000" text-anchor="middle">UC-14: Audit Matriks SAW (X, R, V)</text>
+
+  <!-- UC 15 (Dashboard Eksekutif) -->
+  <ellipse cx="640" cy="575" rx="100" ry="24" fill="#D8E8F8" stroke="#385D8A" stroke-width="1.3" filter="url(#eaDrop)"/>
+  <text x="640" y="579" font-size="11" fill="#000000" text-anchor="middle">UC-15: Dashboard Eksekutif &amp; KPI</text>
+
+  <!-- Connectors (Garis Asosiasi) -->
+  <!-- Guest to UCs -->
+  <line x1="160" y1="200" x2="265" y2="125" stroke="#385D8A" stroke-width="1.2"/>
+  <line x1="160" y1="210" x2="375" y2="175" stroke="#385D8A" stroke-width="1.2"/>
+  <line x1="160" y1="220" x2="270" y2="245" stroke="#385D8A" stroke-width="1.2"/>
+  <line x1="160" y1="230" x2="270" y2="305" stroke="#385D8A" stroke-width="1.2"/>
+
+  <!-- Sales to UCs -->
+  <line x1="160" y1="460" x2="385" y2="185" stroke="#385D8A" stroke-width="1.2"/>
+  <line x1="160" y1="470" x2="405" y2="365" stroke="#385D8A" stroke-width="1.2"/>
+  <line x1="160" y1="480" x2="260" y2="440" stroke="#385D8A" stroke-width="1.2"/>
+  <line x1="160" y1="490" x2="365" y2="495" stroke="#385D8A" stroke-width="1.2"/>
+  <line x1="160" y1="500" x2="265" y2="565" stroke="#385D8A" stroke-width="1.2"/>
+
+  <!-- Admin to UCs -->
+  <line x1="840" y1="330" x2="595" y2="365" stroke="#385D8A" stroke-width="1.2"/>
+  <line x1="840" y1="310" x2="725" y2="250" stroke="#385D8A" stroke-width="1.2"/>
+  <line x1="840" y1="320" x2="725" y2="310" stroke="#385D8A" stroke-width="1.2"/>
+  <line x1="840" y1="340" x2="745" y2="435" stroke="#385D8A" stroke-width="1.2"/>
+  <line x1="840" y1="350" x2="745" y2="515" stroke="#385D8A" stroke-width="1.2"/>
+  <line x1="840" y1="360" x2="740" y2="575" stroke="#385D8A" stroke-width="1.2"/>
+</svg>

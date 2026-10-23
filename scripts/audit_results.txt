@@ -1,0 +1,342 @@
+frontend\src\components\CreditSimulationModal.vue:33: <div v-if="laptop" class="p-3.5 rounded-2xl bg-slate-50 border border-slate-200/80 flex items-center justify-between gap-3 text-xs">
+frontend\src\components\CreditSimulationModal.vue:36: <img v-if="laptop.image_url" :src="laptop.image_url" :alt="laptop.model" class="max-h-full max-w-full object-contain" />
+frontend\src\components\CreditSimulationModal.vue:40: <span class="font-bold text-slate-900 block truncate">{{ laptop.brand }} {{ laptop.model }}</span>
+frontend\src\components\CreditSimulationModal.vue:41: <span class="text-slate-500 text-[11px]">{{ laptop.category === 'gpu_rig' ? 'Investasi Unit Hardware' : 'Tarif Sewa Bulanan' }}</span>
+frontend\src\components\CreditSimulationModal.vue:197: laptop: {
+frontend\src\components\CreditSimulationModal.vue:214: return parseFloat(props.laptop?.price || 10000000);
+frontend\src\components\CreditSimulationModal.vue:257: if (props.laptop) {
+frontend\src\components\CreditSimulationModal.vue:258: cartStore.addItem(props.laptop, 1);
+frontend\src\components\InfrastructureCard.vue:22: :class="laptop.category === 'gpu_rig' ? 'bg-indigo-700 text-white' : 'bg-blue-600 text-white'"
+frontend\src\components\InfrastructureCard.vue:24: <span class="material-symbols-outlined text-[13px] leading-none">{{ laptop.category === 'gpu_rig' ? 'memory' : 'cloud' }}</span>
+frontend\src\components\InfrastructureCard.vue:25: <span>{{ laptop.category === 'gpu_rig' ? 'GPU Rig' : 'Cloud Server' }}</span>
+frontend\src\components\InfrastructureCard.vue:31: :class="laptop.stock > 0 ? 'bg-blue-50 text-blue-800 border border-blue-300' : 'bg-rose-50 text-rose-800 border border-rose-300'"
+frontend\src\components\InfrastructureCard.vue:33: {{ laptop.stock > 0 ? `Kapasitas: ${laptop.stock} Node` : 'Alokasi Penuh' }}
+frontend\src\components\InfrastructureCard.vue:37: v-if="laptop.image_url"
+frontend\src\components\InfrastructureCard.vue:38: :src="laptop.image_url"
+frontend\src\components\InfrastructureCard.vue:39: :alt="laptop.model"
+frontend\src\components\InfrastructureCard.vue:43: <span class="material-symbols-outlined text-[72px] font-light">{{ laptop.category === 'gpu_rig' ? 'memory' : 'dns' }}</span>
+frontend\src\components\InfrastructureCard.vue:44: <span class="text-xs font-bold tracking-wide uppercase mt-1 text-slate-600">{{ laptop.brand }}</span>
+frontend\src\components\InfrastructureCard.vue:52: <span class="uppercase tracking-wider font-bold text-blue-700">{{ laptop.brand }} • Enterprise SLA</span>
+frontend\src\components\InfrastructureCard.vue:53: <span v-if="laptop.sku" class="truncate max-w-[140px] font-medium text-slate-500">{{ laptop.sku }}</span>
+frontend\src\components\InfrastructureCard.vue:57: <router-link :to="`/infrastructure/${laptop.id || laptop.laptop_id}`" class="block">
+frontend\src\components\InfrastructureCard.vue:58: <h3 class="font-extrabold text-base sm:text-lg text-slate-900 group-hover:text-blue-600 transition-colors line-clamp-1" :title="laptop.model">
+frontend\src\components\InfrastructureCard.vue:59: {{ laptop.model }}
+frontend\src\components\InfrastructureCard.vue:67: {{ formatIDR(laptop.price) }}
+frontend\src\components\InfrastructureCard.vue:70: {{ laptop.category === 'gpu_rig' ? 'Investasi Unit (CapEx)' : 'Tarif Sewa Bulanan (OpEx)' }}
+frontend\src\components\InfrastructureCard.vue:86: <span class="px-2.5 py-1 rounded-md bg-slate-100 text-slate-800 font-semibold border border-slate-200/80 truncate max-w-[170px]" :title="laptop.processor_name">
+frontend\src\components\InfrastructureCard.vue:87: {{ laptop.processor_name }}
+frontend\src\components\InfrastructureCard.vue:90: {{ laptop.ram_gb }}GB RAM
+frontend\src\components\InfrastructureCard.vue:92: <span class="px-2.5 py-1 rounded-md bg-slate-100 text-slate-800 font-semibold border border-slate-200/80 truncate max-w-[150px]" :title="laptop.storage_desc">
+frontend\src\components\InfrastructureCard.vue:93: {{ laptop.storage_desc }}
+frontend\src\components\InfrastructureCard.vue:95: <span v-if="laptop.gpu_name && laptop.gpu_score > 30" class="px-2.5 py-1 rounded-md bg-indigo-50 text-indigo-900 font-bold border border-indigo-200 truncate max-w-[160px]" :title="laptop.gpu_name">
+frontend\src\components\InfrastructureCard.vue:96: {{ laptop.gpu_name }}
+frontend\src\components\InfrastructureCard.vue:98: <span v-if="laptop.battery_hours" class="px-2.5 py-1 rounded-md bg-blue-50 text-blue-800 font-bold border border-blue-200">
+frontend\src\components\InfrastructureCard.vue:99: SLA {{ laptop.battery_hours }}% Uptime
+frontend\src\components\InfrastructureCard.vue:123: :to="`/infrastructure/${laptop.id || laptop.laptop_id}`"
+frontend\src\components\InfrastructureCard.vue:130: @click="handleAddToCart(laptop, $event)"
+frontend\src\components\InfrastructureCard.vue:131: :disabled="laptop.stock <= 0"
+frontend\src\components\InfrastructureCard.vue:143: :laptop="laptop"
+frontend\src\components\InfrastructureCard.vue:157: laptop: {
+frontend\src\components\InfrastructureCard.vue:185: function handleAddToCart(laptop, event) {
+frontend\src\components\InfrastructureCard.vue:186: triggerFlyToCart(event, laptop);
+frontend\src\composables\useCartAnimation.js:6: function triggerFlyToCart(eventOrElement, laptop) {
+frontend\src\composables\useCartAnimation.js:7: if (!laptop) return;
+frontend\src\composables\useCartAnimation.js:10: cartStore.addItem(laptop, 1);
+frontend\src\composables\useCartAnimation.js:11: cartStore.showToast(laptop);
+frontend\src\composables\useCartAnimation.js:64: if (laptop.image_url) {
+frontend\src\composables\useCartAnimation.js:66: img.src = laptop.image_url;
+frontend\src\composables\useCartAnimation.js:67: img.alt = laptop.model || 'Node Infrastruktur';
+frontend\src\router\index.js:18: { path: '/laptop/:id', redirect: to => `/infrastructure/${to.params.id}` },
+frontend\src\stores\authStore.js:6: const token = ref(localStorage.getItem('smartinfra_token') || localStorage.getItem('smartlap_token') || null);
+frontend\src\stores\authStore.js:7: const savedUser = localStorage.getItem('smartinfra_user') || localStorage.getItem('smartlap_user');
+frontend\src\stores\authStore.js:29: localStorage.setItem('smartlap_token', token.value);
+frontend\src\stores\authStore.js:31: localStorage.setItem('smartlap_user', JSON.stringify(user.value));
+frontend\src\stores\authStore.js:47: localStorage.removeItem('smartlap_token');
+frontend\src\stores\authStore.js:49: localStorage.removeItem('smartlap_user');
+frontend\src\stores\cartStore.js:5: const savedCart = localStorage.getItem('smartinfra_cart') || localStorage.getItem('smartlap_cart');
+frontend\src\stores\cartStore.js:14: const rawId = i.id ?? i.laptop_id;
+frontend\src\stores\cartStore.js:19: id: parseInt(i.id ?? i.laptop_id, 10),
+frontend\src\stores\cartStore.js:20: laptop_id: parseInt(i.id ?? i.laptop_id, 10)
+frontend\src\stores\cartStore.js:33: localStorage.setItem('smartlap_cart', JSON.stringify(items.value));
+frontend\src\stores\cartStore.js:44: function addItem(laptop, quantity = 1) {
+frontend\src\stores\cartStore.js:45: if (!laptop) return;
+frontend\src\stores\cartStore.js:46: const targetId = parseInt(laptop.id ?? laptop.laptop_id, 10);
+frontend\src\stores\cartStore.js:48: console.warn('Cannot add item with invalid id to cart:', laptop);
+frontend\src\stores\cartStore.js:52: const existing = items.value.find(i => (i.id === targetId || i.laptop_id === targetId));
+frontend\src\stores\cartStore.js:58: laptop_id: targetId,
+frontend\src\stores\cartStore.js:59: brand: laptop.brand,
+frontend\src\stores\cartStore.js:60: model: laptop.model,
+frontend\src\stores\cartStore.js:61: price: parseFloat(laptop.price || 0),
+frontend\src\stores\cartStore.js:62: image_url: laptop.image_url,
+frontend\src\stores\cartStore.js:63: screen_desc: laptop.screen_desc,
+frontend\src\stores\cartStore.js:64: stock: laptop.stock || 10,
+frontend\src\stores\cartStore.js:71: function updateQuantity(laptopId, qty) {
+frontend\src\stores\cartStore.js:72: const targetId = parseInt(laptopId, 10);
+frontend\src\stores\cartStore.js:73: const item = items.value.find(i => i.id === targetId || i.laptop_id === targetId);
+frontend\src\stores\cartStore.js:84: function removeItem(laptopId) {
+frontend\src\stores\cartStore.js:85: const targetId = parseInt(laptopId, 10);
+frontend\src\stores\cartStore.js:86: items.value = items.value.filter(i => i.id !== targetId && i.laptop_id !== targetId);
+frontend\src\stores\cartStore.js:93: localStorage.removeItem('smartlap_cart');
+frontend\src\stores\cartStore.js:110: function showToast(laptop) {
+frontend\src\stores\cartStore.js:111: if (!laptop) return;
+frontend\src\stores\cartStore.js:114: brand: laptop.brand,
+frontend\src\stores\cartStore.js:115: model: laptop.model,
+frontend\src\stores\cartStore.js:116: price: laptop.price,
+frontend\src\stores\cartStore.js:117: image_url: laptop.image_url
+frontend\src\views\AdminDashboardView.vue:275: >{{ laptops.length }} Konfigurasi</span
+frontend\src\views\AdminDashboardView.vue:487: Komposisi ketersediaan node server berdasarkan {{ brandDistribution.length }} provider / vendor OEM ({{ laptops.length }} Total Konfigurasi).
+frontend\src\views\AdminDashboardView.vue:553: lowStockLaptops.length > 0
+frontend\src\views\AdminDashboardView.vue:558: {{ lowStockLaptops.length }} Konfigurasi
+frontend\src\views\AdminDashboardView.vue:563: v-if="lowStockLaptops.length === 0"
+frontend\src\views\AdminDashboardView.vue:573: v-for="l in lowStockLaptops"
+frontend\src\views\AdminDashboardView.vue:709: >{{ filteredLaptops.length }} Unit Node</strong
+frontend\src\views\AdminDashboardView.vue:799: <tr v-if="filteredLaptops.length === 0">
+frontend\src\views\AdminDashboardView.vue:812: v-for="laptop in paginatedLaptops"
+frontend\src\views\AdminDashboardView.vue:813: :key="laptop.id"
+frontend\src\views\AdminDashboardView.vue:821: v-if="laptop.image_url"
+frontend\src\views\AdminDashboardView.vue:822: :src="laptop.image_url"
+frontend\src\views\AdminDashboardView.vue:823: :alt="laptop.model"
+frontend\src\views\AdminDashboardView.vue:830: >laptop</span
+frontend\src\views\AdminDashboardView.vue:837: {{ laptop.brand }} {{ laptop.model }}
+frontend\src\views\AdminDashboardView.vue:839: v-if="laptop.sku"
+frontend\src\views\AdminDashboardView.vue:842: SKU: {{ laptop.sku }}
+frontend\src\views\AdminDashboardView.vue:848: {{ laptop.brand }}
+frontend\src\views\AdminDashboardView.vue:853: {{ formatIDR(laptop.price) }}
+frontend\src\views\AdminDashboardView.vue:863: :value="laptop.stock"
+frontend\src\views\AdminDashboardView.vue:864: @change="updateStock(laptop.id, $event.target.value)"
+frontend\src\views\AdminDashboardView.vue:875: laptop.stock > 0
+frontend\src\views\AdminDashboardView.vue:880: {{ laptop.stock }} Unit
+frontend\src\views\AdminDashboardView.vue:887: laptop.processor_name
+frontend\src\views\AdminDashboardView.vue:891: >{{ laptop.ram_gb }}GB RAM</span
+frontend\src\views\AdminDashboardView.vue:895: laptop.storage_desc || laptop.storage_gb + "GB SSD"
+frontend\src\views\AdminDashboardView.vue:898: <span class="text-slate-600">{{ laptop.weight_kg }}kg</span>
+frontend\src\views\AdminDashboardView.vue:903: @click="openProductModal(laptop)"
+frontend\src\views\AdminDashboardView.vue:914: @click="deleteLaptop(laptop.id)"
+frontend\src\views\AdminDashboardView.vue:933: v-if="filteredLaptops.length > 0"
+frontend\src\views\AdminDashboardView.vue:944: filteredLaptops.length
+frontend\src\views\AdminDashboardView.vue:1183: order.laptop
+frontend\src\views\AdminDashboardView.vue:1184: ? order.laptop.brand + " " + order.laptop.model
+frontend\src\views\AdminDashboardView.vue:1185: : order.laptop_name || "-"
+frontend\src\views\AdminDashboardView.vue:1311: :key="row.laptop_id"
+frontend\src\views\AdminDashboardView.vue:1366: :key="row.laptop_id"
+frontend\src\views\AdminDashboardView.vue:1416: :key="item.laptop_id"
+frontend\src\views\AdminDashboardView.vue:1480: {{ editingLaptop ? "Ubah Data Infrastruktur" : "Tambah Node Infrastruktur Baru" }}
+frontend\src\views\AdminDashboardView.vue:1490: <form @submit.prevent="saveLaptop" class="space-y-4 text-xs">
+frontend\src\views\AdminDashboardView.vue:1528: v-if="laptopForm.image_url"
+frontend\src\views\AdminDashboardView.vue:1529: :src="laptopForm.image_url"
+frontend\src\views\AdminDashboardView.vue:1553: laptopForm.image_url
+frontend\src\views\AdminDashboardView.vue:1559: v-if="laptopForm.image_url"
+frontend\src\views\AdminDashboardView.vue:1584: v-model="laptopForm.image_url"
+frontend\src\views\AdminDashboardView.vue:1610: v-model="laptopForm.brand"
+frontend\src\views\AdminDashboardView.vue:1624: v-model="laptopForm.brand"
+frontend\src\views\AdminDashboardView.vue:1637: v-model="laptopForm.model"
+frontend\src\views\AdminDashboardView.vue:1649: v-model="laptopForm.category"
+frontend\src\views\AdminDashboardView.vue:1670: {{ spellOutRupiah(laptopForm.price) }}
+frontend\src\views\AdminDashboardView.vue:1680: v-model.number="laptopForm.price"
+frontend\src\views\AdminDashboardView.vue:1745: v-model.number="laptopForm.stock"
+frontend\src\views\AdminDashboardView.vue:1757: v-model.number="laptopForm.ram_gb"
+frontend\src\views\AdminDashboardView.vue:1771: v-model="laptopForm.processor_name"
+frontend\src\views\AdminDashboardView.vue:1784: v-model.number="laptopForm.processor_score"
+frontend\src\views\AdminDashboardView.vue:1785: @input="limitTwoDecimals($event, laptopForm, 'processor_score')"
+frontend\src\views\AdminDashboardView.vue:1786: @blur="roundToTwoDecimals(laptopForm, 'processor_score')"
+frontend\src\views\AdminDashboardView.vue:1799: v-model="laptopForm.gpu_name"
+frontend\src\views\AdminDashboardView.vue:1812: v-model.number="laptopForm.gpu_score"
+frontend\src\views\AdminDashboardView.vue:1813: @input="limitTwoDecimals($event, laptopForm, 'gpu_score')"
+frontend\src\views\AdminDashboardView.vue:1814: @blur="roundToTwoDecimals(laptopForm, 'gpu_score')"
+frontend\src\views\AdminDashboardView.vue:1827: v-model.number="laptopForm.storage_gb"
+frontend\src\views\AdminDashboardView.vue:1839: v-model.number="laptopForm.battery_hours"
+frontend\src\views\AdminDashboardView.vue:1840: @input="limitTwoDecimals($event, laptopForm, 'battery_hours')"
+frontend\src\views\AdminDashboardView.vue:1841: @blur="roundToTwoDecimals(laptopForm, 'battery_hours')"
+frontend\src\views\AdminDashboardView.vue:1853: v-model.number="laptopForm.weight_kg"
+frontend\src\views\AdminDashboardView.vue:1854: @input="limitTwoDecimals($event, laptopForm, 'weight_kg')"
+frontend\src\views\AdminDashboardView.vue:1855: @blur="roundToTwoDecimals(laptopForm, 'weight_kg')"
+frontend\src\views\AdminDashboardView.vue:2232: return laptops.value.reduce(
+frontend\src\views\AdminDashboardView.vue:2239: return laptops.value.reduce(
+frontend\src\views\AdminDashboardView.vue:2245: const lowStockLaptops = computed(() => {
+frontend\src\views\AdminDashboardView.vue:2246: return laptops.value.filter((l) => (parseInt(l.stock, 10) || 0) <= 3);
+frontend\src\views\AdminDashboardView.vue:2251: laptops.value.forEach((l) => {
+frontend\src\views\AdminDashboardView.vue:2281: const laptops = ref([]);
+frontend\src\views\AdminDashboardView.vue:2296: // Search & Pagination untuk Laptop di Tab Kelola Laptop
+frontend\src\views\AdminDashboardView.vue:2301: const filteredLaptops = computed(() => {
+frontend\src\views\AdminDashboardView.vue:2303: return laptops.value;
+frontend\src\views\AdminDashboardView.vue:2306: return laptops.value.filter((l) => {
+frontend\src\views\AdminDashboardView.vue:2318: return Math.ceil(filteredLaptops.value.length / productsPerPage.value) || 1;
+frontend\src\views\AdminDashboardView.vue:2328: filteredLaptops.value.length,
+frontend\src\views\AdminDashboardView.vue:2332: const paginatedLaptops = computed(() => {
+frontend\src\views\AdminDashboardView.vue:2333: return filteredLaptops.value.slice(
+frontend\src\views\AdminDashboardView.vue:2364: const existing = laptops.value
+frontend\src\views\AdminDashboardView.vue:2406: laptopForm.value.image_url = event.target.result;
+frontend\src\views\AdminDashboardView.vue:2417: laptopForm.value.image_url = "";
+frontend\src\views\AdminDashboardView.vue:2443: const current = Number(laptopForm.value.price) || 0;
+frontend\src\views\AdminDashboardView.vue:2444: laptopForm.value.price = Math.max(0, current + delta);
+frontend\src\views\AdminDashboardView.vue:2448: const current = Number(laptopForm.value.price) || 0;
+frontend\src\views\AdminDashboardView.vue:2449: laptopForm.value.price = Math.max(0, current * factor);
+frontend\src\views\AdminDashboardView.vue:2453: const current = Number(laptopForm.value.price) || 0;
+frontend\src\views\AdminDashboardView.vue:2454: laptopForm.value.price = Math.max(0, Math.floor(current / factor));
+frontend\src\views\AdminDashboardView.vue:2458: const editingLaptop = ref(null);
+frontend\src\views\AdminDashboardView.vue:2459: const laptopForm = ref({
+frontend\src\views\AdminDashboardView.vue:2502: async function fetchLaptops() {
+frontend\src\views\AdminDashboardView.vue:2503: const res = await axios.get("/api/laptops");
+frontend\src\views\AdminDashboardView.vue:2504: if (res.data.success) laptops.value = res.data.data;
+frontend\src\views\AdminDashboardView.vue:2526: await fetchLaptops(); // refresh stok jika berkurang
+frontend\src\views\AdminDashboardView.vue:2570: await axios.patch(`/api/laptops/${id}/stock`, { stock });
+frontend\src\views\AdminDashboardView.vue:2576: function openProductModal(laptop = null) {
+frontend\src\views\AdminDashboardView.vue:2578: if (laptop) {
+frontend\src\views\AdminDashboardView.vue:2579: editingLaptop.value = laptop;
+frontend\src\views\AdminDashboardView.vue:2580: laptopForm.value = {
+frontend\src\views\AdminDashboardView.vue:2581: image_url: laptop.image_url || "",
+frontend\src\views\AdminDashboardView.vue:2582: ...laptop,
+frontend\src\views\AdminDashboardView.vue:2584: Number(laptop.processor_score || 80).toFixed(2),
+frontend\src\views\AdminDashboardView.vue:2586: gpu_score: parseFloat(Number(laptop.gpu_score || 70).toFixed(2)),
+frontend\src\views\AdminDashboardView.vue:2587: battery_hours: parseFloat(Number(laptop.battery_hours || 10).toFixed(2)),
+frontend\src\views\AdminDashboardView.vue:2588: weight_kg: parseFloat(Number(laptop.weight_kg || 1.4).toFixed(2)),
+frontend\src\views\AdminDashboardView.vue:2590: if (laptop.brand && !brandList.value.includes(laptop.brand)) {
+frontend\src\views\AdminDashboardView.vue:2596: editingLaptop.value = null;
+frontend\src\views\AdminDashboardView.vue:2598: laptopForm.value = {
+frontend\src\views\AdminDashboardView.vue:2618: async function saveLaptop() {
+frontend\src\views\AdminDashboardView.vue:2620: laptopForm.value.processor_score = parseFloat(
+frontend\src\views\AdminDashboardView.vue:2621: Number(laptopForm.value.processor_score || 80).toFixed(2),
+frontend\src\views\AdminDashboardView.vue:2623: laptopForm.value.gpu_score = parseFloat(
+frontend\src\views\AdminDashboardView.vue:2624: Number(laptopForm.value.gpu_score || 70).toFixed(2),
+frontend\src\views\AdminDashboardView.vue:2626: laptopForm.value.battery_hours = parseFloat(
+frontend\src\views\AdminDashboardView.vue:2627: Number(laptopForm.value.battery_hours || 10).toFixed(2),
+frontend\src\views\AdminDashboardView.vue:2629: laptopForm.value.weight_kg = parseFloat(
+frontend\src\views\AdminDashboardView.vue:2630: Number(laptopForm.value.weight_kg || 1.4).toFixed(2),
+frontend\src\views\AdminDashboardView.vue:2633: if (editingLaptop.value) {
+frontend\src\views\AdminDashboardView.vue:2635: `/api/laptops/${editingLaptop.value.id}`,
+frontend\src\views\AdminDashboardView.vue:2636: laptopForm.value,
+frontend\src\views\AdminDashboardView.vue:2639: await axios.post("/api/laptops", laptopForm.value);
+frontend\src\views\AdminDashboardView.vue:2642: fetchLaptops();
+frontend\src\views\AdminDashboardView.vue:2648: async function deleteLaptop(id) {
+frontend\src\views\AdminDashboardView.vue:2651: await axios.delete(`/api/laptops/${id}`);
+frontend\src\views\AdminDashboardView.vue:2652: fetchLaptops();
+frontend\src\views\AdminDashboardView.vue:2759: fetchLaptops();
+frontend\src\views\CatalogView.vue:77: @change="fetchLaptops"
+frontend\src\views\CatalogView.vue:88: @change="fetchLaptops"
+frontend\src\views\CatalogView.vue:99: @change="fetchLaptops"
+frontend\src\views\CatalogView.vue:111: <span v-if="selectedBrand !== 'all'" @click="selectedBrand = 'all'; fetchLaptops()" class="text-xs text-blue-600 font-semibold hover:underline cursor-pointer">Semua</span>
+frontend\src\views\CatalogView.vue:120: @change="fetchLaptops"
+frontend\src\views\CatalogView.vue:137: @change="fetchLaptops"
+frontend\src\views\CatalogView.vue:188: <button v-if="maxPrice < 500" @click="maxPrice = 500; fetchLaptops()" class="text-xs text-blue-600 font-semibold hover:underline cursor-pointer">Reset</button>
+frontend\src\views\CatalogView.vue:196: @change="fetchLaptops"
+frontend\src\views\CatalogView.vue:211: @change="fetchLaptops"
+frontend\src\views\CatalogView.vue:224: Menampilkan <span class="font-bold text-slate-900">{{ laptops.length ? startIndex + 1 : 0 }} - {{ endIndex }}</span> dari <span class="font-bold text-slate-900">{{ laptops.length }}</span> Node Tersedia
+frontend\src\views\CatalogView.vue:266: <div v-else-if="laptops.length === 0" class="bg-white rounded-2xl border border-slate-200 p-12 text-center max-w-md mx-auto">
+frontend\src\views\CatalogView.vue:282: v-for="laptop in paginatedLaptops"
+frontend\src\views\CatalogView.vue:283: :key="laptop.id"
+frontend\src\views\CatalogView.vue:284: :laptop="laptop"
+frontend\src\views\CatalogView.vue:294: Halaman <strong class="text-slate-800">{{ currentPage }}</strong> dari <strong class="text-slate-800">{{ totalPages }}</strong> (Total {{ laptops.length }} Infrastruktur)
+frontend\src\views\CatalogView.vue:368: const laptops = ref([]);
+frontend\src\views\CatalogView.vue:397: return Math.ceil(laptops.value.length / perPage.value) || 1;
+frontend\src\views\CatalogView.vue:405: return Math.min(startIndex.value + perPage.value, laptops.value.length);
+frontend\src\views\CatalogView.vue:408: const paginatedLaptops = computed(() => {
+frontend\src\views\CatalogView.vue:409: return laptops.value.slice(startIndex.value, endIndex.value);
+frontend\src\views\CatalogView.vue:465: fetchLaptops();
+frontend\src\views\CatalogView.vue:473: fetchLaptops();
+frontend\src\views\CatalogView.vue:480: fetchLaptops();
+frontend\src\views\CatalogView.vue:483: async function fetchLaptops() {
+frontend\src\views\CatalogView.vue:495: const res = await axios.get('/api/laptops', { params });
+frontend\src\views\CatalogView.vue:497: laptops.value = res.data.data;
+frontend\src\views\CatalogView.vue:506: console.error('Error fetching laptops:', err);
+frontend\src\views\CatalogView.vue:521: fetchLaptops();
+frontend\src\views\CatalogView.vue:539: fetchLaptops();
+frontend\src\views\CheckoutView.vue:521: .filter(item => (item.id || item.laptop_id) && !isNaN(parseInt(item.id || item.laptop_id, 10)))
+frontend\src\views\CheckoutView.vue:523: laptop_id: parseInt(item.id || item.laptop_id, 10),
+frontend\src\views\HomeView.vue:208: :key="rec.id || rec.laptop_id"
+frontend\src\views\HomeView.vue:209: :laptop="rec.laptop || rec"
+frontend\src\views\OrderTrackingView.vue:352: const raw = localStorage.getItem('smartinfra_recent_orders') || localStorage.getItem('smartlap_recent_orders');
+frontend\src\views\OrderTrackingView.vue:387: const existing = JSON.parse(localStorage.getItem('smartinfra_recent_orders') || localStorage.getItem('smartlap_recent_orders') || '[]');
+frontend\src\views\OrderTrackingView.vue:398: localStorage.setItem('smartlap_recent_orders', JSON.stringify(updated));
+frontend\src\views\ProductDetailView.vue:11: <span class="text-slate-900 font-semibold truncate">{{ laptop?.brand }} {{ laptop?.model }}</span>
+frontend\src\views\ProductDetailView.vue:21: <div v-else-if="!laptop" class="bg-white rounded-2xl border border-slate-200 p-12 text-center max-w-md mx-auto shadow-sm">
+frontend\src\views\ProductDetailView.vue:40: {{ laptop.category === 'gpu_rig' ? 'Hardware Dedicated Rig' : 'Cloud Server Virtualized' }}
+frontend\src\views\ProductDetailView.vue:44: v-if="laptop.image_url"
+frontend\src\views\ProductDetailView.vue:45: :src="laptop.image_url"
+frontend\src\views\ProductDetailView.vue:46: :alt="laptop.model"
+frontend\src\views\ProductDetailView.vue:49: <span v-else class="material-symbols-outlined text-slate-300" style="font-size: 150px;">{{ laptop.category === 'gpu_rig' ? 'memory' : 'dns' }}</span>
+frontend\src\views\ProductDetailView.vue:55: <span class="material-symbols-outlined text-blue-600 text-[24px]">{{ laptop.category === 'gpu_rig' ? 'memory' : 'cloud' }}</span>
+frontend\src\views\ProductDetailView.vue:56: <span class="text-[10px] font-mono font-semibold text-slate-700 mt-1 uppercase truncate max-w-full">{{ laptop.brand }}</span>
+frontend\src\views\ProductDetailView.vue:60: <span class="text-[10px] font-mono font-semibold text-slate-700 mt-1 truncate max-w-full">{{ laptop.ram_gb }}GB RAM</span>
+frontend\src\views\ProductDetailView.vue:68: <span class="text-[10px] font-mono font-semibold text-slate-700 mt-1">SLA {{ laptop.battery_hours }}%</span>
+frontend\src\views\ProductDetailView.vue:78: Enterprise SLA • {{ laptop.brand }}
+frontend\src\views\ProductDetailView.vue:80: <span v-if="laptop.sku" class="text-xs font-mono text-slate-500">SKU: {{ laptop.sku }}</span>
+frontend\src\views\ProductDetailView.vue:83: {{ laptop.brand }} {{ laptop.model }}
+frontend\src\views\ProductDetailView.vue:86: {{ laptop.description || 'Infrastruktur komputasi enterprise berkinerja tinggi yang dirancang untuk mendukung beban kerja AI training, microservices production, dan pipeline data ber-traffic tinggi.' }}
+frontend\src\views\ProductDetailView.vue:93: {{ laptop.category === 'gpu_rig' ? 'Investasi Pengadaan (CapEx)' : 'Biaya Sewa Bulanan (OpEx)' }}
+frontend\src\views\ProductDetailView.vue:96: {{ formatIDR(laptop.price) }}
+frontend\src\views\ProductDetailView.vue:101: v-if="laptop.stock > 0"
+frontend\src\views\ProductDetailView.vue:105: Tersedia ({{ laptop.stock }} Node/Unit)
+frontend\src\views\ProductDetailView.vue:125: Estimasi pembiayaan mulai <strong class="text-blue-700 font-extrabold font-mono text-sm">{{ formatIDR(Math.round(laptop.price / 12)) }}</strong> / bulan
+frontend\src\views\ProductDetailView.vue:144: <span class="font-semibold text-slate-800">{{ laptop.processor_name }}</span>
+frontend\src\views\ProductDetailView.vue:148: <span class="font-semibold text-slate-800">{{ laptop.gpu_name }}</span>
+frontend\src\views\ProductDetailView.vue:152: <span class="font-semibold text-slate-800">{{ laptop.ram_gb }}GB / {{ laptop.storage_desc }}</span>
+frontend\src\views\ProductDetailView.vue:156: <span class="font-semibold text-slate-800">Uptime {{ laptop.battery_hours }}% / {{ laptop.category === 'gpu_rig' ? 'Dedicated Rig' : 'Virtual Instance' }}</span>
+frontend\src\views\ProductDetailView.vue:173: :disabled="laptop.stock <= 0"
+frontend\src\views\ProductDetailView.vue:182: :disabled="laptop.stock <= 0"
+frontend\src\views\ProductDetailView.vue:210: <span class="font-semibold text-slate-900 font-mono text-right">{{ laptop.processor_name }}</span>
+frontend\src\views\ProductDetailView.vue:214: <span class="font-semibold text-slate-900 font-mono text-right">{{ laptop.gpu_name }}</span>
+frontend\src\views\ProductDetailView.vue:218: <span class="font-semibold text-slate-900 font-mono text-right">{{ laptop.ram_gb }} GB High-Speed / ECC</span>
+frontend\src\views\ProductDetailView.vue:222: <span class="font-semibold text-slate-900 font-mono text-right">{{ laptop.storage_desc }}</span>
+frontend\src\views\ProductDetailView.vue:229: <span class="font-semibold text-slate-900 font-mono text-right">{{ laptop.category === 'gpu_rig' ? 'Dedicated On-Premise GPU Rig' : 'Virtual Cloud Instance (IaaS)' }}</span>
+frontend\src\views\ProductDetailView.vue:233: <span class="font-semibold text-slate-900 font-mono text-right">Uptime SLA {{ laptop.battery_hours }}%</span>
+frontend\src\views\ProductDetailView.vue:237: <span class="font-semibold text-slate-900 font-mono text-right">{{ laptop.screen_desc || 'API / Web Dashboard Console' }}</span>
+frontend\src\views\ProductDetailView.vue:241: <span class="font-semibold text-slate-900 font-mono text-right">{{ laptop.stock }} Node / Unit</span>
+frontend\src\views\ProductDetailView.vue:252: :laptop="laptop"
+frontend\src\views\ProductDetailView.vue:273: const laptop = ref(null);
+frontend\src\views\ProductDetailView.vue:287: async function fetchLaptopDetail() {
+frontend\src\views\ProductDetailView.vue:290: const res = await axios.get(`/api/laptops/${route.params.id}`);
+frontend\src\views\ProductDetailView.vue:292: laptop.value = res.data.data;
+frontend\src\views\ProductDetailView.vue:295: console.error('Error fetching laptop detail:', err);
+frontend\src\views\ProductDetailView.vue:302: if (!laptop.value) return;
+frontend\src\views\ProductDetailView.vue:303: triggerFlyToCart(event, laptop.value);
+frontend\src\views\ProductDetailView.vue:311: if (!laptop.value) return;
+frontend\src\views\ProductDetailView.vue:312: cartStore.addItem(laptop.value);
+frontend\src\views\ProductDetailView.vue:317: fetchLaptopDetail();
+frontend\src\views\SalesDashboardView.vue:272: id="calc-search-laptop"
+frontend\src\views\SalesDashboardView.vue:274: @input="searchLaptops"
+frontend\src\views\SalesDashboardView.vue:279: <div v-if="laptopSearchResults.length && !calcSelectedLaptop" class="mt-2 bg-white rounded-xl border border-slate-200 shadow-md max-h-48 overflow-y-auto">
+frontend\src\views\SalesDashboardView.vue:281: v-for="l in laptopSearchResults"
+frontend\src\views\SalesDashboardView.vue:283: @click="selectLaptopForCalc(l)"
+frontend\src\views\SalesDashboardView.vue:290: <!-- Selected Laptop Badge -->
+frontend\src\views\SalesDashboardView.vue:291: <div v-if="calcSelectedLaptop" class="mt-2 flex items-center gap-3 bg-emerald-50 border border-emerald-200 rounded-xl p-3">
+frontend\src\views\SalesDashboardView.vue:296: <p class="text-xs font-bold text-slate-800 truncate">{{ calcSelectedLaptop.brand }} {{ calcSelectedLaptop.model }}</p>
+frontend\src\views\SalesDashboardView.vue:297: <p class="text-[10px] text-emerald-600 font-mono font-bold">{{ formatIDR(calcSelectedLaptop.price) }}</p>
+frontend\src\views\SalesDashboardView.vue:299: <button @click="calcSelectedLaptop = null; calcSearch = ''" class="text-slate-400 hover:text-rose-500 transition-colors">
+frontend\src\views\SalesDashboardView.vue:377: v-if="calcSelectedLaptop"
+frontend\src\views\SalesDashboardView.vue:611: <tr v-for="laptop in filteredStock" :key="laptop.id" class="hover:bg-slate-50 transition-colors">
+frontend\src\views\SalesDashboardView.vue:613: <p class="font-semibold text-slate-800 text-xs">{{ laptop.brand }} {{ laptop.model }}</p>
+frontend\src\views\SalesDashboardView.vue:614: <p class="text-[10px] text-slate-400 mt-0.5 font-mono">{{ laptop.sku || 'N/A' }}</p>
+frontend\src\views\SalesDashboardView.vue:617: <p class="font-mono font-bold text-xs text-slate-800">{{ formatIDR(laptop.price) }}</p>
+frontend\src\views\SalesDashboardView.vue:623: laptop.stock === 0 ? 'text-rose-600' :
+frontend\src\views\SalesDashboardView.vue:624: laptop.stock < 3 ? 'text-amber-600' : 'text-emerald-600'
+frontend\src\views\SalesDashboardView.vue:625: ]">{{ laptop.stock }}</span>
+frontend\src\views\SalesDashboardView.vue:631: v-if="laptop.stock >= 3"
+frontend\src\views\SalesDashboardView.vue:638: v-else-if="laptop.stock > 0"
+frontend\src\views\SalesDashboardView.vue:642: <span>Stok Kritis (Sisa {{ laptop.stock }})</span>
+frontend\src\views\SalesDashboardView.vue:693: <div v-if="calcSelectedLaptop" class="flex items-center gap-3 bg-emerald-50 border border-emerald-200 rounded-xl p-3">
+frontend\src\views\SalesDashboardView.vue:698: <p class="text-sm font-bold text-slate-800 truncate">{{ calcSelectedLaptop.brand }} {{ calcSelectedLaptop.model }}</p>
+frontend\src\views\SalesDashboardView.vue:699: <p class="text-xs text-emerald-600 font-mono font-bold">{{ formatIDR(calcSelectedLaptop.price) }}</p>
+frontend\src\views\SalesDashboardView.vue:758: <div v-if="calcSelectedLaptop" class="bg-slate-50 border border-slate-200 rounded-xl p-4 text-xs space-y-2">
+frontend\src\views\SalesDashboardView.vue:759: <div class="flex justify-between text-slate-600"><span>Tarif Node</span><span class="font-mono font-bold text-slate-800">{{ formatIDR(calcSelectedLaptop.price) }}</span></div>
+frontend\src\views\SalesDashboardView.vue:761: <div class="flex justify-between text-slate-600"><span>Pokok Pembiayaan</span><span class="font-mono font-bold text-slate-800">{{ formatIDR(calcSelectedLaptop.price - (acForm.dp_amount || 0)) }}</span></div>
+frontend\src\views\SalesDashboardView.vue:764: <span class="font-mono font-black text-emerald-600">{{ formatIDR(Math.ceil((calcSelectedLaptop.price - (acForm.dp_amount || 0)) / acForm.credit_tenor)) }}/bln</span>
+frontend\src\views\SalesDashboardView.vue:859: const allLaptops = ref([]);
+frontend\src\views\SalesDashboardView.vue:864: if (!q) return allLaptops.value;
+frontend\src\views\SalesDashboardView.vue:865: return allLaptops.value.filter(l => `${l.brand} ${l.model}`.toLowerCase().includes(q));
+frontend\src\views\SalesDashboardView.vue:868: async function loadLaptops() {
+frontend\src\views\SalesDashboardView.vue:870: const res = await axios.get('/api/laptops?limit=200');
+frontend\src\views\SalesDashboardView.vue:871: allLaptops.value = res.data.data || [];
+frontend\src\views\SalesDashboardView.vue:873: console.error('loadLaptops:', e);
+frontend\src\views\SalesDashboardView.vue:884: const calcSelectedLaptop = ref(null);
+frontend\src\views\SalesDashboardView.vue:886: const laptopSearchResults = ref([]);
+frontend\src\views\SalesDashboardView.vue:907: function searchLaptops() {
+frontend\src\views\SalesDashboardView.vue:909: if (!calcSearch.value.trim()) { laptopSearchResults.value = []; return; }
+frontend\src\views\SalesDashboardView.vue:912: laptopSearchResults.value = allLaptops.value
+frontend\src\views\SalesDashboardView.vue:918: function selectLaptopForCalc(laptop) {
+frontend\src\views\SalesDashboardView.vue:919: calcSelectedLaptop.value = laptop;
+frontend\src\views\SalesDashboardView.vue:920: calcPrice.value = parseFloat(laptop.price);
+frontend\src\views\SalesDashboardView.vue:922: calcSearch.value = `${laptop.brand} ${laptop.model}`;
+frontend\src\views\SalesDashboardView.vue:923: laptopSearchResults.value = [];
+frontend\src\views\SalesDashboardView.vue:991: if (!calcSelectedLaptop.value) return;
+frontend\src\views\SalesDashboardView.vue:1007: items: [{ laptop_id: calcSelectedLaptop.value.id, quantity: 1 }]
+frontend\src\views\SalesDashboardView.vue:1023: await Promise.all([loadMetrics(), loadOrders(), loadLaptops()]);

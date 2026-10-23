@@ -1,0 +1,14 @@
+{
+  "name": "smartinfra",
+  "version": "1.0.0",
+  "private": true,
+  "description": "SmartInfra - B2B Decision Support & Procurement System for Cloud Server & AI GPU Infrastructure",
+  "scripts": {
+    "dev:backend": "npm run --prefix backend dev",
+    "dev:frontend": "npm run --prefix frontend dev",
+    "seed": "npm run --prefix backend seed",
+    "tunnel": "cloudflared tunnel --protocol http2 --url http://localhost:5175",
+    "tunnel:frontend": "cloudflared tunnel --protocol http2 --url http://localhost:5175",
+    "tunnel:backend": "cloudflared tunnel --protocol http2 --url http://localhost:5001"
+  }
+}

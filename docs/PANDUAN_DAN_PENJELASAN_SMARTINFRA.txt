@@ -1,0 +1,140 @@
+================================================================================
+          PANDUAN & PENJELASAN SISTEM SMARTINFRA (REKAYASA PERANGKAT LUNAK)
+   SISTEM PENDUKUNG KEPUTUSAN PENGADAAN & KONSULTASI INFRASTRUKTUR IT (SPK SAW)
+================================================================================
+
+1. APA ITU SMARTINFRA?
+--------------------------------------------------------------------------------
+SmartInfra adalah platform Enterprise B2B IT Infrastructure Advisory & Decision 
+Support System berbasis Web. Platform ini dirancang khusus untuk membantu Chief 
+Technology Officer (CTO), IT Manager, Software House, serta Tim Riset AI dalam 
+menentukan, membandingkan, dan merencanakan pengadaan infrastruktur komputasi 
+(Cloud Server Instances vs Dedicated On-Premises GPU Rigs) secara objektif, terukur, 
+dan transparan menggunakan metode Simple Additive Weighting (SAW).
+
+Latar Belakang Masalah di Dunia Software Engineering & Industri IT:
+- Dilema Arsitektur Cloud vs On-Premises: Software house sering kali bingung apakah 
+  harus menyewa instance Cloud bulanan (OpEx) seperti AWS/GCP/DO atau membeli rak 
+  GPU server dedicated (CapEx) dengan amortisasi 24-36 bulan.
+- Kompleksitas Spesifikasi Multi-Dimensi: Memilih server bukan sekadar melihat harga, 
+  melainkan menyeimbangkan Core CPU, kapasitas RAM, kecepatan I/O NVMe, VRAM akselerasi 
+  GPU (NVIDIA Tensor Core), hingga garansi SLA Uptime 99.99%.
+- Vendor Lock-In & Over-Budget: Kesalahan estimasi sizing server menyebabkan pembengkakan 
+  biaya infrastruktur hingga 40-60% per tahun.
+
+Solusi dari SmartInfra:
+SmartInfra menyediakan mesin komputasi matematis SPK SAW multi-kriteria yang 
+mengevaluasi matriks alternatif server secara instan berdasarkan profil beban kerja 
+(workload). Dilengkapi kalkulator TCO (Total Cost of Ownership) serta sistem 
+Request for Quotation (RFQ) dan SLA digital resmi.
+
+
+================================================================================
+2. MODEL MATEMATIS SPK SAW (SIMPLE ADDITIVE WEIGHTING)
+================================================================================
+
+SmartInfra menggunakan 6 Kriteria Penilaian Objektif (C1 s/d C6):
+1. C1 - Biaya Sewa Bulanan / Investasi (Cost) [Minimalkan Nilai]
+   - Satuan: Rupiah (Rp). Pada Cloud adalah biaya sewa/bulan; pada GPU Rig adalah estimasi amortisasi bulanan.
+2. C2 - Kekuatan Komputasi Processor CPU (Benefit) [Maksimalkan Nilai]
+   - Satuan: Benchmark Score vCPU / Multi-core CPU.
+3. C3 - Kapasitas Memori RAM (Benefit) [Maksimalkan Nilai]
+   - Satuan: Gigabyte (GB) DDR4/DDR5 ECC Memory.
+4. C4 - Kecepatan & Kapasitas Storage NVMe (Benefit) [Maksimalkan Nilai]
+   - Satuan: Skor Read/Write IOPS & Kapasitas NVMe PCIe Gen4/Gen5.
+5. C5 - Kapasitas Akselerasi GPU / VRAM (Benefit) [Maksimalkan Nilai]
+   - Satuan: Gigabyte (GB) VRAM & Tensor Cores (0 GB untuk CPU-only server).
+6. C6 - Jaminan Uptime SLA & Keandalan (Benefit) [Maksimalkan Nilai]
+   - Satuan: Persentase ketersediaan layanan tahunan (99.5% s/d 99.99%).
+
+3 Workload Profile B2B yang Disediakan:
+A. Web Apps & Microservices Cluster
+   - Fokus: High availability, uptime SLA, efisiensi biaya cost-per-instance, vCPU stabil.
+   - Bobot SAW: C1=25%, C2=20%, C3=20%, C4=10%, C5=0%, C6=25%
+B. Database & Big Data Analytics
+   - Fokus: Kapasitas RAM raksasa (in-memory caching Redis/PostgreSQL), disk IOPS NVMe tinggi.
+   - Bobot SAW: C1=15%, C2=25%, C3=30%, C4=20%, C5=0%, C6=10%
+C. Artificial Intelligence & Deep Learning
+   - Fokus: Dedicated GPU VRAM besar (NVIDIA Tensor Cores), komputasi parallel training/inference.
+   - Bobot SAW: C1=15%, C2=15%, C3=20%, C4=10%, C5=35%, C6=5%
+
+
+================================================================================
+3. FITUR-FITUR UTAMA APLIKASI
+================================================================================
+
+1. Smart Workload Recommendation Engine (SPK SAW)
+   - Filter instan berdasarkan kategori infrastruktur: All, Cloud Instances, Dedicated GPU Rigs.
+   - Kalkulasi normalisasi R[i,j] dan perankingan preferensi V[i] secara real-time.
+   - Modal Transparansi Matriks SAW: Tim IT/dosen penguji dapat melihat seluruh tahapan 
+     rumus $X \to R \to V$ hingga ranking 1-10.
+
+2. Enterprise Infrastructure Catalog
+   - Filter harga hingga Rp 500.000.000 (menampung rack server & GPU cluster).
+   - Filter RAM 8GB hingga 256GB+.
+   - Badging status SLA Tier 4, Network Bandwidth 10Gbps/100Gbps, & provisioning status.
+
+3. TCO & Infrastructure Financing Calculator
+   - Analisis finansial perbandingan sewa bulanan (OpEx) vs investasi pengadaan hardware (CapEx).
+   - Simulasi tenor 6, 12, 24, hingga 36 bulan dengan margin bunga sewa enterprise.
+   - Breakdown biaya operasional harian (Daily Burn-rate) per node komputasi.
+
+4. Guest RFQ (Request for Quotation) & Pengadaan Instan
+   - Pengajuan tanpa login bagi klien/perusahaan.
+   - Pengisian entitas instansi/PT, PIC teknis, nomor WhatsApp, dan alamat server datacenter.
+   - Pilihan termin pembayaran B2B: B2B Bank Transfer, Virtual Account Enterprise, QRIS Bisnis.
+
+5. Dokumen Penawaran Resmi & SLA Digital (Invoice)
+   - Layout faktur standar A4 siap cetak dan simpan PDF.
+   - Nomor pengadaan otomatis (contoh: INFRA-20261018-XXXX).
+   - Rincian spesifikasi teknis node, legal terms, dan status verifikasi digital.
+
+6. Tracking SLA & Provisioning Real-Time
+   - Monitoring 4 tahapan deployment: RFQ Masuk -> Verifikasi Pembayaran -> Provisioning & Setup -> Aktif (SLA Live).
+   - Simulasi pembayaran satu-klik untuk keperluan pengujian dan demonstrasi sidang.
+
+7. Portal IT Solution Architect & Financing Consultant
+   - Akun: consultant@smartinfra.com / consultant123 (Role: sales).
+   - Dashboard KPI monitoring pipeline RFQ, rasio pembiayaan TCO, dan performa konsultasi B2B.
+
+8. Portal Sysadmin Utama (Admin Panel)
+   - Akun: admin@smartinfra.com / admin123 (Role: admin).
+   - Manajemen katalog server (Create, Read, Update, Delete) & kontrol alokasi kapasitas unit.
+   - Konfigurasi bobot kriteria SAW untuk masing-masing workload profile.
+   - Audit trail matriks normalisasi SAW secara menyeluruh.
+
+
+================================================================================
+4. TEKNOLOGI YANG DIGUNAKAN (TECH STACK)
+================================================================================
+
+- Frontend : Vue 3 (Composition API), Vite, Pinia State Management, Vue Router 4.
+- Styling  : Tailwind CSS, Material Symbols Icons (100% Offline via NPM), Plus Jakarta Sans font.
+- Theme    : Clean Professional Corporate (Blue & White / Slate Palette: #2563EB, #1E40AF, #0F172A).
+- Backend  : Node.js, Express.js (RESTful API Architecture).
+- Database : MySQL dengan Prisma ORM (Schema Migration & Relationship Modeling).
+- Algoritma: Simple Additive Weighting (SAW) Engine murni tanpa dependency pihak ketiga.
+
+
+================================================================================
+5. CARA MENJALANKAN SISTEM (LOCAL DEVELOPMENT)
+================================================================================
+
+1. Menjalankan Backend:
+   $ cd backend
+   $ npm install (jika belum)
+   $ npx prisma db push
+   $ npm run seed
+   $ npm run dev
+   Server backend akan aktif di http://localhost:5001
+
+2. Menjalankan Frontend:
+   $ cd frontend
+   $ npm install (jika belum)
+   $ npm run dev
+   Aplikasi frontend akan aktif di http://localhost:5174
+
+3. Akun Pengujian Sidang:
+   - Sysadmin Panel         : admin@smartinfra.com / admin123
+   - IT Solution Architect  : consultant@smartinfra.com / consultant123
+   - Klien / Tamu Perusahaan: Bebas checkout tanpa login

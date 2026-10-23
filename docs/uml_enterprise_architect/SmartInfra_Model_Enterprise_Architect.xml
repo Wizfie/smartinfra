@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<xmi:XMI xmi:version="2.1" xmlns:uml="http://schema.omg.org/spec/UML/2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1">
+  <xmi:Documentation exporter="Enterprise Architect" exporterVersion="16.1"/>
+  <uml:Model xmi:type="uml:Model" xmi:id="EAID_MODEL_SMARTINFRA" name="SmartInfra_SPK_System" visibility="public">
+    <packagedElement xmi:type="uml:Package" xmi:id="EAID_PKG_ROOT_SMARTINFRA" name="SmartInfra SPK Infrastructure System" visibility="public">
+
+      <!-- ════════════════════════════════════════════════════════════════ -->
+      <!-- 01. USE CASE MODEL (SINKRON 100% DENGAN GAMBAR 3.1)             -->
+      <!-- ════════════════════════════════════════════════════════════════ -->
+      <packagedElement xmi:type="uml:Package" xmi:id="EAID_PKG_UC" name="01. Use Case Model" visibility="public">
+        <!-- Actors -->
+        <packagedElement xmi:type="uml:Actor" xmi:id="EAID_ACT_GUEST" name="Konsumen (Guest User)" visibility="public"/>
+        <packagedElement xmi:type="uml:Actor" xmi:id="EAID_ACT_SALES" name="Sales Consultant (Pramuniaga)" visibility="public"/>
+        <packagedElement xmi:type="uml:Actor" xmi:id="EAID_ACT_ADMIN" name="Administrator (Super User)" visibility="public"/>
+
+        <!-- Column 1: Use Cases Konsumen -->
+        <packagedElement xmi:type="uml:UseCase" xmi:id="EAID_UC_01" name="UC-01: Eksplorasi Katalog" visibility="public"/>
+        <packagedElement xmi:type="uml:UseCase" xmi:id="EAID_UC_02" name="UC-02: Konsultasi SPK SAW" visibility="public"/>
+        <packagedElement xmi:type="uml:UseCase" xmi:id="EAID_UC_03" name="UC-03: Checkout Mandiri" visibility="public"/>
+        <packagedElement xmi:type="uml:UseCase" xmi:id="EAID_UC_04" name="UC-04: Lacak Pesanan &amp; Resi" visibility="public">
+          <extend xmi:type="uml:Extend" xmi:id="EAID_EXT_04_03" extendedCase="EAID_UC_03"/>
+        </packagedElement>
+
+        <!-- Column 1: Use Cases Sales Consultant -->
+        <packagedElement xmi:type="uml:UseCase" xmi:id="EAID_UC_05" name="UC-05: Simulasi Kredit" visibility="public"/>
+        <packagedElement xmi:type="uml:UseCase" xmi:id="EAID_UC_06" name="UC-06: Checkout Berbantuan" visibility="public">
+          <include xmi:type="uml:Include" xmi:id="EAID_INC_06_05" addition="EAID_UC_05"/>
+          <include xmi:type="uml:Include" xmi:id="EAID_INC_06_09" addition="EAID_UC_09"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:UseCase" xmi:id="EAID_UC_07" name="UC-07: Monitoring Stok" visibility="public"/>
+        <packagedElement xmi:type="uml:UseCase" xmi:id="EAID_UC_08" name="UC-08: Lacak Komisi Sales" visibility="public"/>
+
+        <!-- Center Column: Shared Core Auth -->
+        <packagedElement xmi:type="uml:UseCase" xmi:id="EAID_UC_09" name="UC-09: Otentikasi Sesi (JWT)" visibility="public"/>
+
+        <!-- Column 2: Use Cases Administrator -->
+        <packagedElement xmi:type="uml:UseCase" xmi:id="EAID_UC_10" name="UC-10: Kelola Data Infrastruktur" visibility="public"/>
+        <packagedElement xmi:type="uml:UseCase" xmi:id="EAID_UC_11" name="UC-11: Kelola Bobot SAW" visibility="public"/>
+        <packagedElement xmi:type="uml:UseCase" xmi:id="EAID_UC_12" name="UC-12: Audit Perhitungan SAW" visibility="public">
+          <extend xmi:type="uml:Extend" xmi:id="EAID_EXT_12_11" extendedCase="EAID_UC_11"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:UseCase" xmi:id="EAID_UC_13" name="UC-13: Verifikasi Pembayaran" visibility="public">
+          <include xmi:type="uml:Include" xmi:id="EAID_INC_13_09" addition="EAID_UC_09"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:UseCase" xmi:id="EAID_UC_14" name="UC-14: Dashboard Eksekutif" visibility="public"/>
+
+        <!-- Actor Associations -->
+        <!-- Konsumen Associations -->
+        <packagedElement xmi:type="uml:Association" xmi:id="EAID_ASC_G01" name="rel_Guest_UC01" visibility="public">
+          <memberEnd xmi:idref="EAID_ACT_GUEST"/><memberEnd xmi:idref="EAID_UC_01"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="EAID_ASC_G02" name="rel_Guest_UC02" visibility="public">
+          <memberEnd xmi:idref="EAID_ACT_GUEST"/><memberEnd xmi:idref="EAID_UC_02"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="EAID_ASC_G03" name="rel_Guest_UC03" visibility="public">
+          <memberEnd xmi:idref="EAID_ACT_GUEST"/><memberEnd xmi:idref="EAID_UC_03"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="EAID_ASC_G04" name="rel_Guest_UC04" visibility="public">
+          <memberEnd xmi:idref="EAID_ACT_GUEST"/><memberEnd xmi:idref="EAID_UC_04"/>
+        </packagedElement>
+
+        <!-- Sales Associations -->
+        <packagedElement xmi:type="uml:Association" xmi:id="EAID_ASC_S05" name="rel_Sales_UC05" visibility="public">
+          <memberEnd xmi:idref="EAID_ACT_SALES"/><memberEnd xmi:idref="EAID_UC_05"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="EAID_ASC_S06" name="rel_Sales_UC06" visibility="public">
+          <memberEnd xmi:idref="EAID_ACT_SALES"/><memberEnd xmi:idref="EAID_UC_06"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="EAID_ASC_S07" name="rel_Sales_UC07" visibility="public">
+          <memberEnd xmi:idref="EAID_ACT_SALES"/><memberEnd xmi:idref="EAID_UC_07"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="EAID_ASC_S08" name="rel_Sales_UC08" visibility="public">
+          <memberEnd xmi:idref="EAID_ACT_SALES"/><memberEnd xmi:idref="EAID_UC_08"/>
+        </packagedElement>
+
+        <!-- Admin Associations -->
+        <packagedElement xmi:type="uml:Association" xmi:id="EAID_ASC_A10" name="rel_Admin_UC10" visibility="public">
+          <memberEnd xmi:idref="EAID_ACT_ADMIN"/><memberEnd xmi:idref="EAID_UC_10"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="EAID_ASC_A11" name="rel_Admin_UC11" visibility="public">
+          <memberEnd xmi:idref="EAID_ACT_ADMIN"/><memberEnd xmi:idref="EAID_UC_11"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="EAID_ASC_A12" name="rel_Admin_UC12" visibility="public">
+          <memberEnd xmi:idref="EAID_ACT_ADMIN"/><memberEnd xmi:idref="EAID_UC_12"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="EAID_ASC_A13" name="rel_Admin_UC13" visibility="public">
+          <memberEnd xmi:idref="EAID_ACT_ADMIN"/><memberEnd xmi:idref="EAID_UC_13"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="EAID_ASC_A14" name="rel_Admin_UC14" visibility="public">
+          <memberEnd xmi:idref="EAID_ACT_ADMIN"/><memberEnd xmi:idref="EAID_UC_14"/>
+        </packagedElement>
+      </packagedElement>
+
+      <!-- ════════════════════════════════════════════════════════════════ -->
+      <!-- 02. ACTIVITY MODEL (SINKRON 100% DENGAN GAMBAR 3.2 & 3.3)       -->
+      <!-- ════════════════════════════════════════════════════════════════ -->
+      <packagedElement xmi:type="uml:Package" xmi:id="EAID_PKG_ACT" name="02. Activity Model" visibility="public">
+        
+        <!-- Activity 1: Rekomendasi SPK SAW -->
+        <packagedElement xmi:type="uml:Activity" xmi:id="EAID_ACTV_SPK" name="Activity: Rekomendasi SPK SAW" visibility="public">
+          <node xmi:type="uml:InitialNode" xmi:id="EAID_NODE_ACTV_01" name="Start"/>
+          <node xmi:type="uml:OpaqueAction" xmi:id="EAID_NODE_ACTV_02" name="1. Memilih Persona Profil Kebutuhan (Mahasiswa, Gamer, Desainer)"/>
+          <node xmi:type="uml:OpaqueAction" xmi:id="EAID_NODE_ACTV_03" name="2. Menentukan Batas Filter Tambahan (Harga Max, Min RAM, Brand)"/>
+          <node xmi:type="uml:OpaqueAction" xmi:id="EAID_NODE_ACTV_04" name="3. Query Data Laptop Ready Stock dari Database (Matriks X)"/>
+          <node xmi:type="uml:OpaqueAction" xmi:id="EAID_NODE_ACTV_05" name="4. Normalisasi Matriks Keputusan R (Formula Benefit &amp; Cost SAW)"/>
+          <node xmi:type="uml:OpaqueAction" xmi:id="EAID_NODE_ACTV_06" name="5. Kalkulasi Nilai Preferensi V_i = sum(w_j * r_ij) &amp; Match %"/>
+          <node xmi:type="uml:OpaqueAction" xmi:id="EAID_NODE_ACTV_07" name="6. Perangkingan Alternatif (Sorting Descending V_i Tertinggi)"/>
+          <node xmi:type="uml:OpaqueAction" xmi:id="EAID_NODE_ACTV_08" name="7. Menampilkan Halaman Rekomendasi Laptop Terbaik"/>
+          <node xmi:type="uml:OpaqueAction" xmi:id="EAID_NODE_ACTV_09" name="8. Pembeli Memilih: Checkout Mandiri / Simulasi Kredit"/>
+          <node xmi:type="uml:ActivityFinalNode" xmi:id="EAID_NODE_ACTV_10" name="End"/>
+        </packagedElement>
+
+        <!-- Activity 2: Assisted Checkout & Maker-Checker Approval (Swimlanes) -->
+        <packagedElement xmi:type="uml:Activity" xmi:id="EAID_ACTV_ASSISTED" name="Activity: Assisted Checkout &amp; Maker-Checker Approval" visibility="public">
+          <!-- Swimlanes / Partitions -->
+          <group xmi:type="uml:ActivityPartition" xmi:id="EAID_LANE_CUST" name="Konsumen (Customer)"/>
+          <group xmi:type="uml:ActivityPartition" xmi:id="EAID_LANE_SALES" name="Sales Consultant (Maker)"/>
+          <group xmi:type="uml:ActivityPartition" xmi:id="EAID_LANE_ADMIN" name="Administrator / Kasir (Checker)"/>
+
+          <node xmi:type="uml:InitialNode" xmi:id="EAID_NODE_AC_01" name="Start" inPartition="EAID_LANE_CUST"/>
+          <node xmi:type="uml:OpaqueAction" xmi:id="EAID_NODE_AC_02" name="Konsumen Konsultasi Spesifikasi &amp; Anggaran Laptop" inPartition="EAID_LANE_CUST"/>
+          <node xmi:type="uml:OpaqueAction" xmi:id="EAID_NODE_AC_03" name="Sales Jalankan SPK SAW &amp; Simulasikan Tenor Kredit" inPartition="EAID_LANE_SALES"/>
+          <node xmi:type="uml:OpaqueAction" xmi:id="EAID_NODE_AC_04" name="Sales Input Data Konsumen &amp; Buat Pesanan (Assisted Order)" inPartition="EAID_LANE_SALES"/>
+          <node xmi:type="uml:OpaqueAction" xmi:id="EAID_NODE_AC_05" name="Sistem Terbitkan Pesanan Status PENDING (Invoice Sementara)" inPartition="EAID_LANE_SALES"/>
+          <node xmi:type="uml:OpaqueAction" xmi:id="EAID_NODE_AC_06" name="Admin Menerima Notifikasi &amp; Cek Mutasi Bank / Leasing" inPartition="EAID_LANE_ADMIN"/>
+          <node xmi:type="uml:DecisionNode" xmi:id="EAID_NODE_AC_07" name="Pembayaran / Leasing Sah &amp; Valid?" inPartition="EAID_LANE_ADMIN"/>
+          <node xmi:type="uml:OpaqueAction" xmi:id="EAID_NODE_AC_08" name="Admin Verifikasi Pembayaran (Status Ubah Menjadi PAID)" inPartition="EAID_LANE_ADMIN"/>
+          <node xmi:type="uml:OpaqueAction" xmi:id="EAID_NODE_AC_09" name="Stok Laptop Berkurang Otomatis di Gudang" inPartition="EAID_LANE_ADMIN"/>
+          <node xmi:type="uml:OpaqueAction" xmi:id="EAID_NODE_AC_10" name="Faktur Lunas Terbit &amp; Komisi Sales Terakumulasi" inPartition="EAID_LANE_ADMIN"/>
+          <node xmi:type="uml:OpaqueAction" xmi:id="EAID_NODE_AC_11" name="Admin Tolak Transaksi (Status CANCELLED / REJECTED)" inPartition="EAID_LANE_ADMIN"/>
+          <node xmi:type="uml:ActivityFinalNode" xmi:id="EAID_NODE_AC_12" name="End" inPartition="EAID_LANE_ADMIN"/>
+        </packagedElement>
+      </packagedElement>
+
+      <!-- ════════════════════════════════════════════════════════════════ -->
+      <!-- 03. LOGICAL DATA MODEL (SINKRON 100% DENGAN GAMBAR 3.4)         -->
+      <!-- ════════════════════════════════════════════════════════════════ -->
+      <packagedElement xmi:type="uml:Package" xmi:id="EAID_PKG_CLS" name="03. Logical Data Model [Entity Classes]" visibility="public">
+        
+        <!-- 1. User -->
+        <packagedElement xmi:type="uml:Class" xmi:id="EAID_CLS_USER" name="User" visibility="public">
+          <ownedAttribute xmi:type="uml:Property" xmi:id="EAID_ATT_U1" name="+ id : Integer [PK]" visibility="public"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="EAID_ATT_U2" name="+ email : String" visibility="public"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="EAID_ATT_U3" name="+ passwordHash : String" visibility="public"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="EAID_ATT_U4" name="+ name : String" visibility="public"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="EAID_ATT_U5" name="+ role : Enum(admin, sales)" visibility="public"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="EAID_ATT_U6" name="+ createdAt : DateTime" visibility="public"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="EAID_ATT_U7" name="+ updatedAt : DateTime" visibility="public"/>
+        </packagedElement>
+
+        <!-- 2. Order -->
+        <packagedElement xmi:type="uml:Class" xmi:id="EAID_CLS_ORDER" name="Order" visibility="public">
+          <ownedAttribute xmi:type="uml:Property" xmi:id="EAID_ATT_O1" name="+ id : Integer [PK]" visibility="public"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="EAID_ATT_O2" name="+ orderNumber : String [Unique]" visibility="public"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="EAID_ATT_O3" name="+ customerName : String" visibility="public"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="EAID_ATT_O4" name="+ customerEmail : String" visibility="public"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="EAID_ATT_O5" name="+ customerPhone : String" visibility="public"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="EAID_ATT_O6" name="+ shippingAddress : Text" visibility="public"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="EAID_ATT_O7" name="+ totalAmount : Decimal(15,2)" visibility="public"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="EAID_ATT_O8" name="+ paymentMethod : String" visibility="public"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="EAID_ATT_O9" name="+ paymentStatus : Enum(pending, paid)" visibility="public"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="EAID_ATT_O10" name="+ isCredit : Boolean" visibility="public"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="EAID_ATT_O11" name="+ creditTenor : Integer" visibility="public"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="EAID_ATT_O12" name="+ monthlyInstallment : Decimal(15,2)" visibility="public"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="EAID_ATT_O13" name="+ dpAmount : Decimal(15,2)" visibility="public"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="EAID_ATT_O14" name="+ financingProvider : String" visibility="public"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="EAID_ATT_O15" name="+ salesId : Integer [FK, Nullable]" visibility="public"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="EAID_ATT_O16" name="+ paidAt : DateTime" visibility="public"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="EAID_ATT_O17" name="+ createdAt : DateTime" visibility="public"/>
+        </packagedElement>
+
+        <!-- 3. OrderItem (Junction Entity Order & Laptop) -->
+        <packagedElement xmi:type="uml:Class" xmi:id="EAID_CLS_ORDER_ITEM" name="OrderItem" visibility="public">
+          <ownedAttribute xmi:type="uml:Property" xmi:id="EAID_ATT_OI1" name="+ id : Integer [PK]" visibility="public"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="EAID_ATT_OI2" name="+ orderId : Integer [FK]" visibility="public"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="EAID_ATT_OI3" name="+ laptopId : Integer [FK]" visibility="public"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="EAID_ATT_OI4" name="+ quantity : Integer" visibility="public"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="EAID_ATT_OI5" name="+ unitPrice : Decimal(15,2)" visibility="public"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="EAID_ATT_OI6" name="+ subtotal : Decimal(15,2)" visibility="public"/>
+        </packagedElement>
+
+        <!-- 4. Laptop -->
+        <packagedElement xmi:type="uml:Class" xmi:id="EAID_CLS_LAPTOP" name="Laptop" visibility="public">
+          <ownedAttribute xmi:type="uml:Property" xmi:id="EAID_ATT_L1" name="+ id : Integer [PK]" visibility="public"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="EAID_ATT_L2" name="+ brand : String" visibility="public"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="EAID_ATT_L3" name="+ model : String" visibility="public"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="EAID_ATT_L4" name="+ sku : String" visibility="public"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="EAID_ATT_L5" name="+ price : Decimal(15,2) [C1-Cost]" visibility="public"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="EAID_ATT_L6" name="+ stock : Integer" visibility="public"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="EAID_ATT_L7" name="+ processorName : String" visibility="public"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="EAID_ATT_L8" name="+ processorScore : Decimal(5,2) [C2-Ben]" visibility="public"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="EAID_ATT_L9" name="+ ramGb : Integer [C3-Ben]" visibility="public"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="EAID_ATT_L10" name="+ storageDesc : String" visibility="public"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="EAID_ATT_L11" name="+ storageGb : Integer [C4-Ben]" visibility="public"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="EAID_ATT_L12" name="+ gpuName : String" visibility="public"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="EAID_ATT_L13" name="+ gpuScore : Decimal(5,2) [C5-Ben]" visibility="public"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="EAID_ATT_L14" name="+ batteryHours : Decimal(4,1) [C6-Ben]" visibility="public"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="EAID_ATT_L15" name="+ weightKg : Decimal(4,2)" visibility="public"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="EAID_ATT_L16" name="+ imageUrl : MediumText" visibility="public"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="EAID_ATT_L17" name="+ description : Text" visibility="public"/>
+        </packagedElement>
+
+        <!-- 5. Criterion -->
+        <packagedElement xmi:type="uml:Class" xmi:id="EAID_CLS_CRIT" name="Criterion" visibility="public">
+          <ownedAttribute xmi:type="uml:Property" xmi:id="EAID_ATT_C1" name="+ id : Integer [PK]" visibility="public"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="EAID_ATT_C2" name="+ code : String(C1..C6)" visibility="public"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="EAID_ATT_C3" name="+ name : String" visibility="public"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="EAID_ATT_C4" name="+ type : String(cost, benefit)" visibility="public"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="EAID_ATT_C5" name="+ description : Text" visibility="public"/>
+        </packagedElement>
+
+        <!-- 6. LaptopCriteriaValue (Junction Entity Laptop & Criterion) -->
+        <packagedElement xmi:type="uml:Class" xmi:id="EAID_CLS_LAP_CRIT" name="LaptopCriteriaValue" visibility="public">
+          <ownedAttribute xmi:type="uml:Property" xmi:id="EAID_ATT_LC1" name="+ id : Integer [PK]" visibility="public"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="EAID_ATT_LC2" name="+ laptopId : Integer [FK]" visibility="public"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="EAID_ATT_LC3" name="+ criterionId : Integer [FK]" visibility="public"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="EAID_ATT_LC4" name="+ rawValue : Decimal(12,2)" visibility="public"/>
+        </packagedElement>
+
+        <!-- 7. Profile (User Persona) -->
+        <packagedElement xmi:type="uml:Class" xmi:id="EAID_CLS_PROFILE" name="Profile" visibility="public">
+          <ownedAttribute xmi:type="uml:Property" xmi:id="EAID_ATT_P1" name="+ id : Integer [PK]" visibility="public"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="EAID_ATT_P2" name="+ name : String" visibility="public"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="EAID_ATT_P3" name="+ slug : String [Unique]" visibility="public"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="EAID_ATT_P4" name="+ description : Text" visibility="public"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="EAID_ATT_P5" name="+ iconName : String" visibility="public"/>
+        </packagedElement>
+
+        <!-- 8. ProfileCriteriaWeight (Junction Entity Profile & Criterion) -->
+        <packagedElement xmi:type="uml:Class" xmi:id="EAID_CLS_PROF_WEIGHT" name="ProfileCriteriaWeight" visibility="public">
+          <ownedAttribute xmi:type="uml:Property" xmi:id="EAID_ATT_PW1" name="+ id : Integer [PK]" visibility="public"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="EAID_ATT_PW2" name="+ profileId : Integer [FK]" visibility="public"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="EAID_ATT_PW3" name="+ criterionId : Integer [FK]" visibility="public"/>
+          <ownedAttribute xmi:type="uml:Property" xmi:id="EAID_ATT_PW4" name="+ weight : Decimal(5,4)" visibility="public"/>
+        </packagedElement>
+
+        <!-- Associations dengan Multiplisitas Eksplisit (1, 0..*, 1..*, 6) -->
+        <!-- 1. User -> Order (1 to 0..* Role: PIC Sales) -->
+        <packagedElement xmi:type="uml:Association" xmi:id="EAID_ASC_USER_ORDER" name="PIC Sales" visibility="public">
+          <memberEnd xmi:idref="EAID_ASC_UO_END1"/>
+          <memberEnd xmi:idref="EAID_ASC_UO_END2"/>
+          <ownedEnd xmi:type="uml:Property" xmi:id="EAID_ASC_UO_END1" type="EAID_CLS_USER" association="EAID_ASC_USER_ORDER">
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_MULT_UO_L1" value="1"/>
+            <upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_MULT_UO_U1" value="1"/>
+          </ownedEnd>
+          <ownedEnd xmi:type="uml:Property" xmi:id="EAID_ASC_UO_END2" type="EAID_CLS_ORDER" association="EAID_ASC_USER_ORDER">
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_MULT_UO_L2" value="0"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="EAID_MULT_UO_U2" value="*"/>
+          </ownedEnd>
+        </packagedElement>
+
+        <!-- 2. Order -> OrderItem (1 to 1..*) -->
+        <packagedElement xmi:type="uml:Association" xmi:id="EAID_ASC_ORDER_ITEMS" name="Order_OrderItems" visibility="public">
+          <memberEnd xmi:idref="EAID_ASC_OI_END1"/>
+          <memberEnd xmi:idref="EAID_ASC_OI_END2"/>
+          <ownedEnd xmi:type="uml:Property" xmi:id="EAID_ASC_OI_END1" type="EAID_CLS_ORDER" association="EAID_ASC_ORDER_ITEMS">
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_MULT_OI_L1" value="1"/>
+            <upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_MULT_OI_U1" value="1"/>
+          </ownedEnd>
+          <ownedEnd xmi:type="uml:Property" xmi:id="EAID_ASC_OI_END2" type="EAID_CLS_ORDER_ITEM" association="EAID_ASC_ORDER_ITEMS">
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_MULT_OI_L2" value="1"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="EAID_MULT_OI_U2" value="*"/>
+          </ownedEnd>
+        </packagedElement>
+
+        <!-- 3. Laptop -> OrderItem (1 to 0..*) -->
+        <packagedElement xmi:type="uml:Association" xmi:id="EAID_ASC_LAPTOP_ITEMS" name="Laptop_OrderItems" visibility="public">
+          <memberEnd xmi:idref="EAID_ASC_LI_END1"/>
+          <memberEnd xmi:idref="EAID_ASC_LI_END2"/>
+          <ownedEnd xmi:type="uml:Property" xmi:id="EAID_ASC_LI_END1" type="EAID_CLS_LAPTOP" association="EAID_ASC_LAPTOP_ITEMS">
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_MULT_LI_L1" value="1"/>
+            <upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_MULT_LI_U1" value="1"/>
+          </ownedEnd>
+          <ownedEnd xmi:type="uml:Property" xmi:id="EAID_ASC_LI_END2" type="EAID_CLS_ORDER_ITEM" association="EAID_ASC_LAPTOP_ITEMS">
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_MULT_LI_L2" value="0"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="EAID_MULT_LI_U2" value="*"/>
+          </ownedEnd>
+        </packagedElement>
+
+        <!-- 4. Laptop -> LaptopCriteriaValue (1 to 6 Kriteria C1..C6) -->
+        <packagedElement xmi:type="uml:Association" xmi:id="EAID_ASC_LAPTOP_VALS" name="Laptop_CriteriaValues" visibility="public">
+          <memberEnd xmi:idref="EAID_ASC_LV_END1"/>
+          <memberEnd xmi:idref="EAID_ASC_LV_END2"/>
+          <ownedEnd xmi:type="uml:Property" xmi:id="EAID_ASC_LV_END1" type="EAID_CLS_LAPTOP" association="EAID_ASC_LAPTOP_VALS">
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_MULT_LV_L1" value="1"/>
+            <upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_MULT_LV_U1" value="1"/>
+          </ownedEnd>
+          <ownedEnd xmi:type="uml:Property" xmi:id="EAID_ASC_LV_END2" type="EAID_CLS_LAP_CRIT" association="EAID_ASC_LAPTOP_VALS">
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_MULT_LV_L2" value="6"/>
+            <upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_MULT_LV_U2" value="6"/>
+          </ownedEnd>
+        </packagedElement>
+
+        <!-- 5. Criterion -> LaptopCriteriaValue (1 to *) -->
+        <packagedElement xmi:type="uml:Association" xmi:id="EAID_ASC_CRIT_VALS" name="Criterion_Values" visibility="public">
+          <memberEnd xmi:idref="EAID_ASC_CV_END1"/>
+          <memberEnd xmi:idref="EAID_ASC_CV_END2"/>
+          <ownedEnd xmi:type="uml:Property" xmi:id="EAID_ASC_CV_END1" type="EAID_CLS_CRIT" association="EAID_ASC_CRIT_VALS">
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_MULT_CV_L1" value="1"/>
+            <upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_MULT_CV_U1" value="1"/>
+          </ownedEnd>
+          <ownedEnd xmi:type="uml:Property" xmi:id="EAID_ASC_CV_END2" type="EAID_CLS_LAP_CRIT" association="EAID_ASC_CRIT_VALS">
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_MULT_CV_L2" value="0"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="EAID_MULT_CV_U2" value="*"/>
+          </ownedEnd>
+        </packagedElement>
+
+        <!-- 6. Profile -> ProfileCriteriaWeight (1 to 6 Kriteria C1..C6) -->
+        <packagedElement xmi:type="uml:Association" xmi:id="EAID_ASC_PROF_WEIGHTS" name="Profile_CriteriaWeights" visibility="public">
+          <memberEnd xmi:idref="EAID_ASC_PW_END1"/>
+          <memberEnd xmi:idref="EAID_ASC_PW_END2"/>
+          <ownedEnd xmi:type="uml:Property" xmi:id="EAID_ASC_PW_END1" type="EAID_CLS_PROFILE" association="EAID_ASC_PROF_WEIGHTS">
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_MULT_PW_L1" value="1"/>
+            <upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_MULT_PW_U1" value="1"/>
+          </ownedEnd>
+          <ownedEnd xmi:type="uml:Property" xmi:id="EAID_ASC_PW_END2" type="EAID_CLS_PROF_WEIGHT" association="EAID_ASC_PROF_WEIGHTS">
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_MULT_PW_L2" value="6"/>
+            <upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_MULT_PW_U2" value="6"/>
+          </ownedEnd>
+        </packagedElement>
+
+        <!-- 7. Criterion -> ProfileCriteriaWeight (1 to *) -->
+        <packagedElement xmi:type="uml:Association" xmi:id="EAID_ASC_CRIT_WEIGHTS" name="Criterion_Weights" visibility="public">
+          <memberEnd xmi:idref="EAID_ASC_CW_END1"/>
+          <memberEnd xmi:idref="EAID_ASC_CW_END2"/>
+          <ownedEnd xmi:type="uml:Property" xmi:id="EAID_ASC_CW_END1" type="EAID_CLS_CRIT" association="EAID_ASC_CRIT_WEIGHTS">
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_MULT_CW_L1" value="1"/>
+            <upperValue xmi:type="uml:LiteralInteger" xmi:id="EAID_MULT_CW_U1" value="1"/>
+          </ownedEnd>
+          <ownedEnd xmi:type="uml:Property" xmi:id="EAID_ASC_CW_END2" type="EAID_CLS_PROF_WEIGHT" association="EAID_ASC_CRIT_WEIGHTS">
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="EAID_MULT_CW_L2" value="0"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="EAID_MULT_CW_U2" value="*"/>
+          </ownedEnd>
+        </packagedElement>
+
+      </packagedElement>
+
+      <!-- ════════════════════════════════════════════════════════════════ -->
+      <!-- 04. SEQUENCE MODEL (SINKRON 100% DENGAN GAMBAR 3.5)             -->
+      <!-- ════════════════════════════════════════════════════════════════ -->
+      <packagedElement xmi:type="uml:Package" xmi:id="EAID_PKG_SEQ" name="04. Sequence Model" visibility="public">
+        <packagedElement xmi:type="uml:Interaction" xmi:id="EAID_SEQ_SPK" name="Sequence: Rekomendasi Laptop SAW" visibility="public">
+          
+          <!-- 5 Lifelines -->
+          <lifeline xmi:type="uml:Lifeline" xmi:id="EAID_LL_USER" name="User / Sales (Client)"/>
+          <lifeline xmi:type="uml:Lifeline" xmi:id="EAID_LL_UI" name=":WebClient (Vue.js 3)"/>
+          <lifeline xmi:type="uml:Lifeline" xmi:id="EAID_LL_CTRL" name=":SPKController (API Route)"/>
+          <lifeline xmi:type="uml:Lifeline" xmi:id="EAID_LL_SRV" name=":SAWService (Engine)"/>
+          <lifeline xmi:type="uml:Lifeline" xmi:id="EAID_LL_DB" name=":Database (MySQL 8)"/>
+
+          <!-- 10 Messages Sinkron Sesuai Urutan Aliran Pesan -->
+          <message xmi:type="uml:Message" xmi:id="EAID_MSG_01" name="1. Pilih Profil 'Mahasiswa' &amp; Filter Harga" messageSort="synchCall"/>
+          <message xmi:type="uml:Message" xmi:id="EAID_MSG_02" name="2. POST /api/spk/recommend {profile_id: 1, filters}" messageSort="synchCall"/>
+          <message xmi:type="uml:Message" xmi:id="EAID_MSG_03" name="3. Query Alternatif Ready Stock &amp; Bobot Kriteria" messageSort="synchCall"/>
+          <message xmi:type="uml:Message" xmi:id="EAID_MSG_04" name="4. Return Data Mentah Alternatif (Matriks X)" messageSort="reply"/>
+          <message xmi:type="uml:Message" xmi:id="EAID_MSG_05" name="5. calculateSAW(alternatives, criteria, weights)" messageSort="synchCall"/>
+          <message xmi:type="uml:Message" xmi:id="EAID_MSG_06" name="6. Normalisasi Matriks R (Formula Benefit/Cost)" messageSort="synchCall"/>
+          <message xmi:type="uml:Message" xmi:id="EAID_MSG_07" name="7. Hitung Preferensi V_i &amp; Sorting Peringkat" messageSort="synchCall"/>
+          <message xmi:type="uml:Message" xmi:id="EAID_MSG_08" name="8. Return Hasil Rekomendasi Terurut" messageSort="reply"/>
+          <message xmi:type="uml:Message" xmi:id="EAID_MSG_09" name="9. JSON Response {success: true, results: [...] }" messageSort="reply"/>
+          <message xmi:type="uml:Message" xmi:id="EAID_MSG_10" name="10. Render Hasil Rekomendasi &amp; Match % di Layar" messageSort="reply"/>
+        </packagedElement>
+      </packagedElement>
+
+    </packagedElement>
+  </uml:Model>
+</xmi:XMI>
